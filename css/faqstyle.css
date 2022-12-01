@@ -1,6 +1,6 @@
 /*--
-Author: W3layouts
-Author URL: http://w3layouts.com
+Author: Limelightlayouts
+Author URL: http://Limelightlayouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
@@ -27,7 +27,7 @@ ul,label{
 body a:hover{
 	text-decoration:none;
 }
-input[type="submit"],.agileinfo_chat a,.w3_customer_email_right a,ul.dropdown-menu.multi-column ul li a{
+input[type="submit"],.agileinfo_chat a,.Limelight_customer_email_right a,ul.dropdown-menu.multi-column ul li a{
 	transition:.5s ease-in;
 	-webkit-transition:.5s ease-in;
 	-moz-transition:.5s ease-in;
@@ -35,7 +35,7 @@ input[type="submit"],.agileinfo_chat a,.w3_customer_email_right a,ul.dropdown-me
 	-ms-transition:.5s ease-in;
 }
 /*-- faq --*/
-.w3_faq_latest_text {
+.Limelight_faq_latest_text {
     margin-bottom: 0.5em !important;
 }
 .pa_italic i {

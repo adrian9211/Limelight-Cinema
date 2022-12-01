@@ -1,6 +1,6 @@
-/*--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
+/*--A Design by Limelightlayouts
+Author: Limelightlayout
+Author URL: http://Limelightlayouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
@@ -66,7 +66,7 @@ ol.breadcrumb li a{
 .wthree-news-top-left:last-child {
 	border-bottom: none;
 }
-.w3-agileits-news-left {
+.Limelight-agileits-news-left {
     padding-left: 0;
 }
 .wthree-news-img {
@@ -222,18 +222,18 @@ ol.breadcrumb li a{
 .top-news-grid:last-child{
 	padding-bottom:0;
 }
-.w3ls-news-t-grid {
+.Limelightls-news-t-grid {
     margin: 1em 0 0 0;
 }
-.w3ls-news-t-grid ul {
+.Limelightls-news-t-grid ul {
     padding: 0;
     margin: 0;
 }
-.w3ls-news-t-grid  ul li {
+.Limelightls-news-t-grid  ul li {
     display: inline-block;
     padding: 0 .5em;
 }
-.w3ls-news-t-grid  ul li a {
+.Limelightls-news-t-grid  ul li a {
     color: #999999;
     font-size: .9em;
 	text-decoration:none;
@@ -283,13 +283,13 @@ ol.breadcrumb li a{
 .news-twitter a{
 	margin:1em 0 0 0 !important;
 }
-.w3-agile-news-text p{
+.Limelight-agile-news-text p{
 	color: #999999;
     font-size: .9em;
     margin: .5em 0;
     line-height: 1.8em;
 }
-.w3-agile-news-text p span{
+.Limelight-agile-news-text p span{
 	display:block;
 	margin:1em 0;
 }
@@ -337,7 +337,7 @@ ol.breadcrumb li a{
 	}
 }
 @media(max-width:991px){
-	.w3-agileits-news-left {
+	.Limelight-agileits-news-left {
 		float: left;
 		width: 50%;
 	}
@@ -373,7 +373,7 @@ ol.breadcrumb li a{
 	}
 }
 @media(max-width:600px){
-	.w3-agileits-news-left {
+	.Limelight-agileits-news-left {
 		float: none;
 		width: 100%;
 		margin-bottom: 1em;

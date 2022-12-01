@@ -5,7 +5,7 @@
 $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpass = '1xCMat5k5Cb4';
-$database = 'PHP_testing_project';
+$database = 'Limelight-Cinema';
 
 
 $username = $_POST['username']; //username from HTML form

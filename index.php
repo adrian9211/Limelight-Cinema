@@ -1,56 +1,804 @@
-
-<!DOCTYPE HTML>
-<html>
-<head>
-  <title>My Profile</title>
-    <link rel="stylesheet" href="css/style.css" title="style" />
-</head>
-<body>
-  <div id="main">
-      <nav id="nav">
-
-      </nav>
-      <div id="site_content">
-      		<h1>Admin panel task</h1>
-      <div id="content">
-      <h2>Registration form</h2>
-      </div>
-          <form action="register.php" method="post">
-              <label>
-                  FirstName:
-                  <input type="text" name="firstname">
-              </label>
-              <br>
-              <label>
-                  Surname:
-                  <input type="text" name="surname">
-              </label>
-              <br>
-              <label>
-                  Username:
-                  <input type="text" name="username">
-              </label>
-              <br>
-              <label>
-                  Password:
-                  <input type="password" name="password">
-              </label>
-              <br>
-              <label>
-                  <label for="birthday">Date of birth:</label>
-                  <input type="date" id="birthday" name="dob">
-              </label>
-              <br>
-              <button type="submit" name="submit" value="submit" >Register</button>
-          </form>
-      </div>
-      <h2>Already existing user?</h2>
-      <form action="login.php" method="post">
-          <button type="submit" name="submit" value="submit" >Login</button>
-      </form>
+<?php //session_start(); ?>
+<?php
+# Set page title
+$page_title = "Limelight Cinema - Home";
+# Include header file
+include('includes/header.php');
+//$_SESSION['loggedin'] = 0;
+?>
 
 
+<!-- banner -->
+<div id="slidey" style="display:none;">
 
-  </div>
-</body>
-</html>
+<?php
+require_once ("db.php");
+
+        $result = mysqli_query($conn, "SELECT Title, Description, file_name FROM movies");
+
+echo "<ul>";
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+
+            echo "<li>";
+            echo "<img src='uploads/".$row['file_name']."' >";
+            echo "<div class='slidey-overlay'></div>";
+            echo "<div class='banner-text'>";
+            echo "<h3 class='title'>" . $row['Title'] . "</h3>";
+            echo "<p class='description'>" . $row['Description'] . "</p>";
+            echo "</div>";
+            echo "</li>";
+        }
+echo "</ul>";
+
+?>
+
+</div>
+<script src="js/jquery.slidey.js"></script>
+<script src="js/jquery.dotdotdot.min.js"></script>
+<script type="text/javascript">
+    $("#slidey").slidey({
+        interval: 8000,
+        listCount: 5,
+        autoplay: false,
+        showList: true
+    });
+    $(".slidey-list-description").dotdotdot();
+</script>
+<!-- //banner -->
+
+<div class="general_social_icons">
+    <nav class="social">
+        <ul>
+            <li class="Limelight_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
+            <li class="Limelight_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
+            <li class="Limelight_dribbble"><a href="#">Dribbble <i class="fa fa-dribbble"></i></a></li>
+            <li class="Limelight_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>
+        </ul>
+    </nav>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- banner-bottom -->
+<div class="banner-bottom">
+    <div class="container">
+        <div class="Limelight_agile_banner_bottom_grid">
+            <div id="owl-demo" class="owl-carousel owl-theme">
+                <?php
+                $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title FROM movies");
+                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    echo "<div class='item'>";
+                    echo "<div class='Limelightl-movie-gride-agile Limelightl-movie-gride-agile1'>";
+                    echo "<a href='single.html' class='hvr-shutter-out-horizontal'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='img-responsive' alt=' ' />
+                                <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
+                                ";
+                    echo "</a>";
+                    echo "<div class='mid-1 agileits_Limelightlayouts_mid_1_home'>";
+                    echo "<div class='Limelightl-movie-text'>";
+                    echo "<h6 class='mb-2 fw-bold'><a href='single.html' >" . $row['Title'] . " </a></h6>";
+                    echo "<h6><a href='single.html'>" . $row['Type'] . "</a></h6>";
+                    echo "</div>";
+                    echo "<div class='mid-2 agile_mid_2_home'>";
+                    echo "<div class='block-stars'>";
+                    echo "<ul class='Limelightl-ratings'>";
+                    echo "<p>" . $row['Rating'] . "</p>";
+                    while ($row['Rating'] > 0) {
+                        echo "<li><a href='#'><i class='fa fa-star' aria-hidden='true'></i></a></li>";
+                        $row['Rating']--;
+                    }
+                    echo "</ul>";
+                    echo "</div>";
+                    echo "<div class='clearfix'></div>";
+                    echo "</div>";
+                    echo "<div class='ribben'>";
+                    echo "<p>NEW</p>";
+                    echo "</div>";
+//                                echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+
+                };
+
+                ?>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //banner-bottom -->
+
+
+
+
+
+
+<!-- general -->
+
+
+
+<div class="general">
+    <h4 class="latest-text Limelight_latest_text">All Movies</h4>
+    <div class="container">
+        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+            <div id="myTabContent" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+                    <div class="Limelight_agile_featured_movies">
+                            <?php
+
+                            $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title FROM movies");
+
+                            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                                echo "<div class='col-md-2 Limelightl-movie-gride-agile'>";
+                                echo "<a href='single.html' class='hvr-shutter-out-horizontal'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='img-responsive' alt=' ' />
+                                <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
+                                ";
+                                echo "</a>";
+                                echo "<div class='mid-1 agileits_Limelightlayouts_mid_1_home'>";
+                                echo "<div class='Limelightl-movie-text'>";
+                                echo "<h6 class='mb-2 fw-bold'><a href='single.html' >" . $row['Title'] . " </a></h6>";
+                                echo "<h6><a href='single.html'>" . $row['Type'] . "</a></h6>";
+                                echo "</div>";
+                                echo "<div class='mid-2 agile_mid_2_home'>";
+                                echo "<div class='block-stars'>";
+                                echo "<ul class='Limelightl-ratings'>";
+                                echo "<p>" . $row['Rating'] . "</p>";
+                                while ($row['Rating'] > 0) {
+                                    echo "<li><a href='#'><i class='fa fa-star' aria-hidden='true'></i></a></li>";
+                                    $row['Rating']--;
+                                }
+                                echo "</ul>";
+                                echo "</div>";
+                                echo "<div class='clearfix'></div>";
+                                echo "</div>";
+                                echo "<div class='ribben'>";
+                                echo "<p>NEW</p>";
+                                echo "</div>";
+//                                echo "</div>";
+                                echo "</div>";
+                                echo "</div>";
+
+                            };
+
+                            ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Latest-tv-series -->
+<div class="Latest-tv-series">
+    <h4 class="latest-text Limelight_latest_text Limelight_home_popular">Most Popular Movies</h4>
+    <div class="container">
+        <section class="slider">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <div class="agile_tv_series_grid">
+                            <div class="col-md-6 agile_tv_series_grid_left">
+                                <div class="Limelightls_market_video_grid1">
+                                    <img src="images/h1-1.jpg" alt=" " class="img-responsive" />
+                                    <a class="Limelight_play_icon" href="#small-dialog">
+                                        <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 agile_tv_series_grid_right">
+                                <p class="fexi_header">the conjuring 2</p>
+                                <p class="fexi_header_para"><span class="conjuring_Limelight">Story Line<label>:</label></span> 720p,Bluray HD Free Movie Downloads, Watch Free Movies Online with high speed Free Movie Streaming | MyDownloadTube Lorraine and Ed Warren go to north London to help a single...</p>
+                                <p class="fexi_header_para"><span>Date of Release<label>:</label></span> Jun 10, 2016 </p>
+                                <p class="fexi_header_para">
+                                    <span>Genres<label>:</label> </span>
+                                    <a href="genres.html">Drama</a> |
+                                    <a href="genres.html">Adventure</a> |
+                                    <a href="genres.html">Family</a>
+                                </p>
+                                <p class="fexi_header_para fexi_header_para1"><span>Star Rating<label>:</label></span>
+                                    <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+                                </p>
+                            </div>
+                            <div class="clearfix"> </div>
+                            <div class="agileinfo_flexislider_grids">
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m22.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">Assassin's Creed 3</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m2.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">Bad Moms</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m9.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">Central Intelligence</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m7.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">Light B/t Oceans</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m11.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">X-Men</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m17.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">Peter</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="agile_tv_series_grid">
+                            <div class="col-md-6 agile_tv_series_grid_left">
+                                <div class="Limelightls_market_video_grid1">
+                                    <img src="images/h2-1.jpg" alt=" " class="img-responsive" />
+                                    <a class="Limelight_play_icon1" href="#small-dialog1">
+                                        <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 agile_tv_series_grid_right">
+                                <p class="fexi_header">a haunting in cawdor</p>
+                                <p class="fexi_header_para"><span class="conjuring_Limelight">Story Line<label>:</label></span> Vivian Miller, sent to a rehabilitation programme for young offenders, where a theatre camp is used as an alternative to jail time. After she views tape ...</p>
+                                <p class="fexi_header_para"><span>Date of Release<label>:</label></span> Oct 09, 2015 </p>
+                                <p class="fexi_header_para">
+                                    <span>Genres<label>:</label> </span>
+                                    <a href="genres.html">Thriller</a> |
+                                    <a href="genres.html">Horror</a>
+                                </p>
+                                <p class="fexi_header_para fexi_header_para1"><span>Star Rating<label>:</label></span>
+                                    <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+                                </p>
+                            </div>
+                            <div class="clearfix"> </div>
+                            <div class="agileinfo_flexislider_grids">
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m2.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">Bad Moms</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m9.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">Central Intelligence</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m7.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">Light B/t Oceans</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m11.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">X-Men</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m17.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">Peter</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m21.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">The Jungle Book</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="agile_tv_series_grid">
+                            <div class="col-md-6 agile_tv_series_grid_left">
+                                <div class="Limelightls_market_video_grid1">
+                                    <img src="images/h3-1.jpg" alt=" " class="img-responsive" />
+                                    <a class="Limelight_play_icon2" href="#small-dialog2">
+                                        <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 agile_tv_series_grid_right">
+                                <p class="fexi_header">civil war captain America</p>
+                                <p class="fexi_header_para"><span class="conjuring_Limelight">Story Line<label>:</label></span> After the Avengers leaves some&nbsp;collateral damage, political pressure mounts to install a system of accountability.&nbsp;The new status quo deeply divides ...</p>
+                                <p class="fexi_header_para"><span>Date of Release<label>:</label></span> May 06, 2016 </p>
+                                <p class="fexi_header_para">
+                                    <span>Genres<label>:</label> </span>
+                                    <a href="genres.html">Action</a> |
+                                    <a href="genres.html">Adventure</a>
+                                </p>
+                                <p class="fexi_header_para fexi_header_para1"><span>Star Rating<label>:</label></span>
+                                    <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+                                </p>
+                            </div>
+                            <div class="clearfix"> </div>
+                            <div class="agileinfo_flexislider_grids">
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m2.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">Bad Moms</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m9.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">Central Intelligence</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m7.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">Light B/t Oceans</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m11.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">X-Men</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m17.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">Peter</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 Limelightl-movie-gride-agile">
+                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m20.jpg" title="album-name" class="img-responsive" alt=" " />
+                                        <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                        <div class="Limelightl-movie-text">
+                                            <h6><a href="single.html">The Secret Life of Pets</a></h6>
+                                        </div>
+                                        <div class="mid-2 agile_mid_2_home">
+                                            <p>2016</p>
+                                            <div class="block-stars">
+                                                <ul class="Limelightl-ratings">
+                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- flexSlider -->
+        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
+        <script defer src="js/jquery.flexslider.js"></script>
+        <script type="text/javascript">
+            $(window).load(function(){
+                $('.flexslider').flexslider({
+                    animation: "slide",
+                    start: function(slider){
+                        $('body').removeClass('loading');
+                    }
+                });
+            });
+        </script>
+        <!-- //flexSlider -->
+    </div>
+</div>
+<!-- pop-up-box -->
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<!--//pop-up-box -->
+<div id="small-dialog" class="mfp-hide">
+    <iframe src="https://player.vimeo.com/video/164819130?title=0&byline=0"></iframe>
+</div>
+<div id="small-dialog1" class="mfp-hide">
+    <iframe src="https://player.vimeo.com/video/148284736"></iframe>
+</div>
+<div id="small-dialog2" class="mfp-hide">
+    <iframe src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
+</div>
+<script>
+    $(document).ready(function() {
+        $('.Limelight_play_icon,.Limelight_play_icon1,.Limelight_play_icon2').magnificPopup({
+            type: 'inline',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+    });
+</script>
+<!-- //Latest-tv-series -->
+
+<?php
+# Include footer
+include('includes/footer.php');
+?>
+

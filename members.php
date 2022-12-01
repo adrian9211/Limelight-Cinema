@@ -1,8 +1,15 @@
+
+
 <?php
+# Set page title
+$page_title = "Account";
+# Include header file
+include('includes/header.php');
 require_once ("db.php");
 
 session_start();
 $user = $_SESSION['user'];
+
 if ( !isset($_SESSION['logged-in']) || $_SESSION['logged-in'] !== true) {
 
     header('Location:login.php');
@@ -105,65 +112,9 @@ function addMovie() {
 }
 ?>
 
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <title>Members</title>
-    <link rel="stylesheet" href="css/style.css" title="style" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- banner-slider -->
-    <link href="css/jquery.slidey.min.css" rel="stylesheet">
-    <!-- //banner-slider -->
-    <!-- pop-up -->
-    <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
-    <!-- //pop-up -->
-    <!-- font-awesome icons -->
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
-    <!-- //font-awesome icons -->
-    <!-- js -->
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-    <!-- //js -->
-    <!-- banner-bottom-plugin -->
-    <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
-    <script src="js/owl.carousel.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#owl-demo").owlCarousel({
 
-                autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-                items : 5,
-                itemsDesktop : [640,4],
-                itemsDesktopSmall : [414,3]
-
-            });
-
-        });
-    </script>
-    <!-- //banner-bottom-plugin -->
-    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
-    <!-- start-smoth-scrolling -->
-    <script type="text/javascript" src="js/move-top.js"></script>
-    <script type="text/javascript" src="js/easing.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){
-                event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-            });
-        });
-    </script>
-    <!-- start-smoth-scrolling -->
-</head>
-<body>
 <div class="container">
 
-
-
-    <div id="main" class="col-md-auto">
-        <nav id="nav">
-
-        </nav>
         <div>Welcome : <?php
             echo "$user";
             echo "<br>";
@@ -179,11 +130,7 @@ function addMovie() {
         <br>
 
 
-        <form action="logout.php" method="post">
-            <br>
-            <label>Would you like to log out? Just hit button.</label>
-            <button type="submit" name="submit" value="submit" class="btn btn-primary" >Logout</button>
-        </form>
+
 
         <?php
         if ($userPrivilegeResult2 == "A") {
@@ -524,10 +471,14 @@ function addMovie() {
         echo "<br>";
         $age = floor($timeDifference / 31556926); // 31556926 is the number of seconds in a year
         echo "Your age is: " .$age;
+        echo "<br>";
+
         if ($age >= 18)
         {
             echo "<br>";
             echo "<b>You are an adult member</b>";
+            echo "<br>";
+
 
         }
         else
@@ -536,6 +487,7 @@ function addMovie() {
             echo "<b>You are an junior member</b>";
 
         }
+
 
         mysqli_close($conn);
 
@@ -548,21 +500,21 @@ function addMovie() {
         <!-- banner-bottom -->
         <div class="banner-bottom">
             <div class="container">
-                <div class="w3_agile_banner_bottom_grid">
+                <div class="Limelight_agile_banner_bottom_grid">
                     <div id="owl-demo" class="owl-carousel owl-theme">
                         <div class="item">
-                            <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
+                            <div class="Limelightl-movie-gride-agile Limelightl-movie-gride-agile1">
                                 <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m13.jpg" title="album-name" class="img-responsive" alt=" " />
-                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                                 </a>
-                                <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                    <div class="w3l-movie-text">
+                                <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                    <div class="Limelightl-movie-text">
                                         <h6><a href="single.html">Citizen Soldier</a></h6>
                                     </div>
                                     <div class="mid-2 agile_mid_2_home">
                                         <p>2016</p>
                                         <div class="block-stars">
-                                            <ul class="w3l-ratings">
+                                            <ul class="Limelightl-ratings">
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -579,18 +531,18 @@ function addMovie() {
                             </div>
                         </div>
                         <div class="item">
-                            <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
+                            <div class="Limelightl-movie-gride-agile Limelightl-movie-gride-agile1">
                                 <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m11.jpg" title="album-name" class="img-responsive" alt=" " />
-                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                                 </a>
-                                <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                    <div class="w3l-movie-text">
+                                <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                    <div class="Limelightl-movie-text">
                                         <h6><a href="single.html">X-Men</a></h6>
                                     </div>
                                     <div class="mid-2 agile_mid_2_home">
                                         <p>2016</p>
                                         <div class="block-stars">
-                                            <ul class="w3l-ratings">
+                                            <ul class="Limelightl-ratings">
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
@@ -607,18 +559,18 @@ function addMovie() {
                             </div>
                         </div>
                         <div class="item">
-                            <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
+                            <div class="Limelightl-movie-gride-agile Limelightl-movie-gride-agile1">
                                 <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m12.jpg" title="album-name" class="img-responsive" alt=" " />
-                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                                 </a>
-                                <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                    <div class="w3l-movie-text">
+                                <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                    <div class="Limelightl-movie-text">
                                         <h6><a href="single.html">Greater</a></h6>
                                     </div>
                                     <div class="mid-2 agile_mid_2_home">
                                         <p>2016</p>
                                         <div class="block-stars">
-                                            <ul class="w3l-ratings">
+                                            <ul class="Limelightl-ratings">
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -635,18 +587,18 @@ function addMovie() {
                             </div>
                         </div>
                         <div class="item">
-                            <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
+                            <div class="Limelightl-movie-gride-agile Limelightl-movie-gride-agile1">
                                 <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m7.jpg" title="album-name" class="img-responsive" alt=" " />
-                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                                 </a>
-                                <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                    <div class="w3l-movie-text">
+                                <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                    <div class="Limelightl-movie-text">
                                         <h6><a href="single.html">Light B/t Oceans</a></h6>
                                     </div>
                                     <div class="mid-2 agile_mid_2_home">
                                         <p>2016</p>
                                         <div class="block-stars">
-                                            <ul class="w3l-ratings">
+                                            <ul class="Limelightl-ratings">
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
@@ -663,18 +615,18 @@ function addMovie() {
                             </div>
                         </div>
                         <div class="item">
-                            <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
+                            <div class="Limelightl-movie-gride-agile Limelightl-movie-gride-agile1">
                                 <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m8.jpg" title="album-name" class="img-responsive" alt=" " />
-                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                                 </a>
-                                <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                    <div class="w3l-movie-text">
+                                <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                    <div class="Limelightl-movie-text">
                                         <h6><a href="single.html">The BFG</a></h6>
                                     </div>
                                     <div class="mid-2 agile_mid_2_home">
                                         <p>2016</p>
                                         <div class="block-stars">
-                                            <ul class="w3l-ratings">
+                                            <ul class="Limelightl-ratings">
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -691,18 +643,18 @@ function addMovie() {
                             </div>
                         </div>
                         <div class="item">
-                            <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
+                            <div class="Limelightl-movie-gride-agile Limelightl-movie-gride-agile1">
                                 <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m9.jpg" title="album-name" class="img-responsive" alt=" " />
-                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                                 </a>
-                                <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                    <div class="w3l-movie-text">
+                                <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                    <div class="Limelightl-movie-text">
                                         <h6><a href="single.html">Central Intelligence</a></h6>
                                     </div>
                                     <div class="mid-2 agile_mid_2_home">
                                         <p>2016</p>
                                         <div class="block-stars">
-                                            <ul class="w3l-ratings">
+                                            <ul class="Limelightl-ratings">
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -719,18 +671,18 @@ function addMovie() {
                             </div>
                         </div>
                         <div class="item">
-                            <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
+                            <div class="Limelightl-movie-gride-agile Limelightl-movie-gride-agile1">
                                 <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m10.jpg" title="album-name" class="img-responsive" alt=" " />
-                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                                 </a>
-                                <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                    <div class="w3l-movie-text">
+                                <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                    <div class="Limelightl-movie-text">
                                         <h6><a href="single.html">Don't Think Twice</a></h6>
                                     </div>
                                     <div class="mid-2 agile_mid_2_home">
                                         <p>2016</p>
                                         <div class="block-stars">
-                                            <ul class="w3l-ratings">
+                                            <ul class="Limelightl-ratings">
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
@@ -747,18 +699,18 @@ function addMovie() {
                             </div>
                         </div>
                         <div class="item">
-                            <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
+                            <div class="Limelightl-movie-gride-agile Limelightl-movie-gride-agile1">
                                 <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m17.jpg" title="album-name" class="img-responsive" alt=" " />
-                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                                 </a>
-                                <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                    <div class="w3l-movie-text">
+                                <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                    <div class="Limelightl-movie-text">
                                         <h6><a href="single.html">Peter</a></h6>
                                     </div>
                                     <div class="mid-2 agile_mid_2_home">
                                         <p>2016</p>
                                         <div class="block-stars">
-                                            <ul class="w3l-ratings">
+                                            <ul class="Limelightl-ratings">
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -775,18 +727,18 @@ function addMovie() {
                             </div>
                         </div>
                         <div class="item">
-                            <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
+                            <div class="Limelightl-movie-gride-agile Limelightl-movie-gride-agile1">
                                 <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m15.jpg" title="album-name" class="img-responsive" alt=" " />
-                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                                 </a>
-                                <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                    <div class="w3l-movie-text">
+                                <div class="mid-1 agileits_Limelightlayouts_mid_1_home">
+                                    <div class="Limelightl-movie-text">
                                         <h6><a href="single.html">God’s Compass</a></h6>
                                     </div>
                                     <div class="mid-2 agile_mid_2_home">
                                         <p>2016</p>
                                         <div class="block-stars">
-                                            <ul class="w3l-ratings">
+                                            <ul class="Limelightl-ratings">
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -819,8 +771,6 @@ function addMovie() {
 
     </div>
 </div>
-<!--Bootstrap-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <script>
     function insertUser() {
@@ -846,51 +796,7 @@ function addMovie() {
 
 </script>
 
-<script>
-    if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
-</script>
-
-
-
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $(".dropdown").hover(
-            function() {
-                $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
-                $(this).toggleClass('open');
-            },
-            function() {
-                $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
-                $(this).toggleClass('open');
-            }
-        );
-    });
-</script>
-<!-- //Bootstrap Core JavaScript -->
-<!-- here stars scrolling icon -->
-<script type="text/javascript">
-    $(document).ready(function() {
-        /*
-            var defaults = {
-            containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear'
-            };
-        */
-
-        $().UItoTop({ easingType: 'easeOutQuart' });
-
-    });
-</script>
-<!-- //here ends scrolling icon -->
-
-
-
-</body>
-</html>
+<?php
+# Include footer
+include('includes/footer.php');
+?>

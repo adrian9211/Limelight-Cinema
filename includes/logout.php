@@ -6,7 +6,7 @@ if (isset($_SESSION['logged-in'])) {
 }
 // now that the user is logged out,
 // go to login page
-header('Location: login.php');
+header('Location: ../index.php');
 ?>
 
 

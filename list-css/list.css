@@ -1,6 +1,6 @@
-/*--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
+/*--A Design by Limelightlayouts
+Author: Limelightlayout
+Author URL: http://Limelightlayouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
@@ -25,25 +25,25 @@ h2.latest-text {
     padding: 0.3em 0.5em;
     margin-left: 3em;
 }
-.w3ls-news-result{
+.Limelightls-news-result{
 	margin:0 0 1em 0;
 }
-.w3ls-news-result h4{
+.Limelightls-news-result h4{
 	font-size: 1em;
     margin: 0;
     color: #000000;
     font-weight: 600;
 }
-.w3ls-news-result h4 span{
+.Limelightls-news-result h4 span{
     color: #999999;
 }
-td.w3-list-img a{
+td.Limelight-list-img a{
 	text-decoration:none;
 }
-td.w3-list-img a img {
+td.Limelight-list-img a img {
     width: 16% !important;
 }
-td.w3-list-img a span{
+td.Limelight-list-img a span{
 	color:#000000;
 	font-size:1em;
 	font-weight:600;
@@ -51,7 +51,7 @@ td.w3-list-img a span{
 	display:block;
 	margin:.5em 0 0 0;
 }
-td.w3-list-info a {
+td.Limelight-list-info a {
     color: #424242;
     text-decoration: none;
 }
@@ -90,10 +90,10 @@ td.w3-list-info a {
 	.nav-tabs > li {
 		margin: 0 .5em 0.5em 0;
 	}
-	td.w3-list-img a img {
+	td.Limelight-list-img a img {
 		width: 25% !important;
 	}
-	td.w3-list-img a span {
+	td.Limelight-list-img a span {
 		margin: .5em 0 0 0;
 	}
 }

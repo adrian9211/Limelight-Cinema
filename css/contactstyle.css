@@ -1,6 +1,6 @@
 /*--
-Author: W3layouts
-Author URL: http://w3layouts.com
+Author: Limelightlayouts
+Author URL: http://Limelightlayouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
@@ -27,7 +27,7 @@ ul,label{
 body a:hover{
 	text-decoration:none;
 }
-input[type="submit"],.agileinfo_chat a,.w3_customer_email_right a,ul.dropdown-menu.multi-column ul li a{
+input[type="submit"],.agileinfo_chat a,.Limelight_customer_email_right a,ul.dropdown-menu.multi-column ul li a{
 	transition:.5s ease-in;
 	-webkit-transition:.5s ease-in;
 	-moz-transition:.5s ease-in;
@@ -35,7 +35,7 @@ input[type="submit"],.agileinfo_chat a,.w3_customer_email_right a,ul.dropdown-me
 	-ms-transition:.5s ease-in;
 }
 /*-- contact --*/
-.location-agileinfo,.call-agileits,.mail-wthree,.social-w3l{
+.location-agileinfo,.call-agileits,.mail-wthree,.social-Limelightl{
 	position:relative;
     background: rgb(58, 58, 58);
 	padding:30px;
@@ -44,7 +44,7 @@ input[type="submit"],.agileinfo_chat a,.w3_customer_email_right a,ul.dropdown-me
 	margin-bottom:50px;
 	float:left;
 }
-.icon-w3 {
+.icon-Limelight {
     position: absolute;
     top: -24px;
     left: 39%;
@@ -54,16 +54,16 @@ input[type="submit"],.agileinfo_chat a,.w3_customer_email_right a,ul.dropdown-me
     height: 50px;
     width: 50px;
 }
-.icon-w3 .glyphicon{
+.icon-Limelight .glyphicon{
 	color:#eee;
 	font-size:20px;
 }
-.location-agileinfo h3,.call-agileits h3,.mail-wthree h3,.social-w3l h3{
+.location-agileinfo h3,.call-agileits h3,.mail-wthree h3,.social-Limelightl h3{
 	font-size:1.5em;
 	color:#fff;
 	margin-bottom:15px;
 }
-.location-agileinfo h4,.call-agileits h4,.mail-wthree h4 a,.social-w3l li{
+.location-agileinfo h4,.call-agileits h4,.mail-wthree h4 a,.social-Limelightl li{
     font-size: 14px;
     color: #fff;
     line-height: 35px;
@@ -74,36 +74,36 @@ input[type="submit"],.agileinfo_chat a,.w3_customer_email_right a,ul.dropdown-me
 .mail-wthree{
 	margin-right:2%;
 }
-.social-w3l ul li {
+.social-Limelightl ul li {
     background-color: #3b5998;
 	list-style:none;
 	width:75%;
 }
-.social-w3l ul li .fa{
+.social-Limelightl ul li .fa{
 	background:#2E4A84;
 	padding:10px 13px;
 }
-.social-w3l ul li.twt {
+.social-Limelightl ul li.twt {
     background-color: #55acee;
 	margin:10px 0;
 	color:#fff;
 }
-.social-w3l ul li.twt .fa{
+.social-Limelightl ul li.twt .fa{
 	background:#4D9CD8;
 	padding:10px;	
 }
-.social-w3l ul li.ggp {
+.social-Limelightl ul li.ggp {
     background-color:#dc4e41;
 }
-.social-w3l ul li.ggp .fa {
+.social-Limelightl ul li.ggp .fa {
 	background:#D64639;
 	padding:10px;	
 }
-.social-w3l ul li a {
+.social-Limelightl ul li a {
     display: block;
 	color:#fff;
 }
-.social-w3l ul li  .fa{
+.social-Limelightl ul li  .fa{
 	color:#fff;
 	font-size:16px;
 }
@@ -115,10 +115,10 @@ li.twt {
     color: #fff;
     font-size:1em;
 }
-.social-w3l ul li a span.text {
+.social-Limelightl ul li a span.text {
     padding-left: 1em;
 }
-.social-w3l ul li a:hover span.icons {
+.social-Limelightl ul li a:hover span.icons {
     transform: rotatey(360deg);
     -webkit-transform: rotatey(360deg);
     -o-transform: rotatey(360deg);
@@ -166,10 +166,10 @@ li.twt {
 /*--- Responsive Code ---*/
 
 @media screen and (max-width: 991px){
-	.location-agileinfo, .call-agileits, .mail-wthree, .social-w3l {
+	.location-agileinfo, .call-agileits, .mail-wthree, .social-Limelightl {
 		padding: 22px;
 	}
-	.icon-w3 {
+	.icon-Limelight {
 		position: absolute;
 		top: -24px;
 		left: 35%;
@@ -178,15 +178,15 @@ li.twt {
 		height: 45px;
 		width: 45px;
 	}
-	.icon-w3 .glyphicon {
+	.icon-Limelight .glyphicon {
 		color: #eee;
 		font-size: 18px;
 	}
-	.location-agileinfo h3, .call-agileits h3, .mail-wthree h3, .social-w3l h3 {
+	.location-agileinfo h3, .call-agileits h3, .mail-wthree h3, .social-Limelightl h3 {
 		font-size: 1.3em;
 		margin:15px 0;
 	}
-	.social-w3l ul li {
+	.social-Limelightl ul li {
 		width: 100%;
 	}
 	#map {
@@ -194,7 +194,7 @@ li.twt {
 	}
 }
 @media screen and (max-width: 667px){
-	.location-agileinfo,.call-agileits,.mail-wthree,.social-w3l{
+	.location-agileinfo,.call-agileits,.mail-wthree,.social-Limelightl{
 		width:47%;
 	}
 	.call-agileits {
@@ -203,14 +203,14 @@ li.twt {
 	.location-agileinfo,.call-agileits{
 		margin-bottom:7%;
 	}
-	.call-agileits,.social-w3l{
+	.call-agileits,.social-Limelightl{
 		margin-left:6%;
 	}
 	.mail-wthree {
 		margin-right:0;
 	}
 	
-	.icon-w3 {
+	.icon-Limelight {
 		top: -21px;
 		left: 44%;
 	}
@@ -233,11 +233,11 @@ li.twt {
 	}
 }
 @media screen and (max-width: 414px){
-	.icon-w3 {
+	.icon-Limelight {
 		top: -21px;
 		left: 36%;
 	}
-	.location-agileinfo, .call-agileits, .mail-wthree, .social-w3l {
+	.location-agileinfo, .call-agileits, .mail-wthree, .social-Limelightl {
 		margin-bottom: 25px;
 	}
 }
@@ -250,15 +250,15 @@ li.twt {
 	}
 }
 @media screen and (max-width: 320px){
-	.location-agileinfo, .call-agileits, .mail-wthree, .social-w3l {
+	.location-agileinfo, .call-agileits, .mail-wthree, .social-Limelightl {
 		position: relative;
 		width: 100%;
 		margin: 0;
 	}
-	.call-agileits,.social-w3l{
+	.call-agileits,.social-Limelightl{
 		margin:30px 0;
 	}
-	.icon-w3 {
+	.icon-Limelight {
 		top: -21px;
 		left: 41%;
 	}
