@@ -12,7 +12,7 @@
         function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- //for-mobile-apps -->
 
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />-->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="css/contactstyle.css" type="text/css" media="all" />
     <link rel="stylesheet" href="css/faqstyle.css" type="text/css" media="all" />
@@ -33,6 +33,9 @@
     <!-- banner-bottom-plugin -->
     <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
     <script src="js/owl.carousel.js"></script>
+<!--    <!-- Bootstrap CSS -->-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <script>
         $(document).ready(function() {
             $("#owl-demo").owlCarousel({
@@ -62,34 +65,78 @@
 </head>
 
 <body>
-<!-- header -->
-<div class="header">
-    <div class="container">
+<!--Navbar-->
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
         <a class="navbar-brand" href="index.php">
-            <img src="./images/icons/logo.png" alt="Logo"  class="d-inline-block align-text-top">
+        <img src="./images/icons/logo.png" alt="Logo"  class="d-inline-block align-text-top m-auto ps-5 ps-sm-1">
         </a>
-        <div class="Limelightl_sign_in_register">
-            <ul>
-                <li><a href="#" data-toggle="modal" data-target="#myModal" <?php if (isset($_COOKIE['loggedin'])) {
+        <form class="d-flex">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" <?php if (isset($_COOKIE['loggedin'])) {
                 echo 'style="display:none;"';
-                }
-                else {
+            }
+            else {
                 echo 'style="display:block;"';
-                }
-                ?>>Login</a></li>
+            }
+            ?>>
+                LOGIN
+            </button>
+        </form>
+    </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light bottom-navbar">
+    <div class="container-fluid ">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 ">
+                <div class="container nav-container">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.php">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="../movie.php">MOVIES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="../about.php">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="../upcoming.php">UPCOMING</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="../contact.php">CONTACT</a>
+                    </li>
+                    <?php if (isset($_COOKIE['loggedin'])) {
+                        echo ' <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="../members.php">ACCOUNT</a>
+                </li>';
+                        echo ' <li class="nav-item">
+                    <a class="nav-link " aria-current="page" data-bs-toggle="modal" data-bs-target="#myModalLogout" href="logout.php">LOGOUT</a>
+                </li>';
+                    }
+                    else {
+//                            echo 'style="display:none;"';
+                    }
+                    ?>
+                </div>
             </ul>
         </div>
-        <div class="clearfix"> </div>
     </div>
-</div>
-<!-- //header -->
+</nav>
+
+
+<!--Navbar-->
+<!-- Button trigger modal -->
+
 <!-- bootstrap-pop-up -->
 <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                Sign In & Sign Up
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h5 class="modal-title text-center" id="exampleModalLabel">Sign In & Sign Up</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <section>
                 <div class="modal-body">
@@ -128,26 +175,26 @@
 </div>
 
 <!--Logout modal-->
-<!-- bootstrap-pop-up -->
+<!-- bootstrap-pop-up logout -->
 <div class="modal video-modal fade" id="myModalLogout" tabindex="-1" role="dialog" aria-labelledby="myModalLogout">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                Logout
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <section>
                 <div class="modal-body">
                     <div class="Limelight_login_module">
                         <div class="module form-module">
                             <div class="form">
-                                <h3>Would you like to log out? Just hit button.</h3>
+                                <h3>Are you sure you want to log out? Confirm</h3>
                                 <form action="logout.php" method="post">
                                     <button type="submit" name="submit" value="submit" class="btn btn-primary" >Logout</button>
                                 </form>
                             </div>
                             <div class="form">
-                                <h3>Would you like to log out? Just hit button.</h3>
+                                <h3>Are you sure you want to log out? Confirm</h3>
                                 <form action="logout.php" method="post">
                                     <button type="submit" name="submit" value="submit" class="btn btn-primary" >Logout</button>
                                 </form>
@@ -174,42 +221,6 @@
     });
 </script>
 <!-- //bootstrap-pop-up -->
-
-<!-- nav -->
-<div class="movies_nav">
-    <div class="container">
-        <nav class="navbar navbar-default">
-            <div class="navbar-header navbar-left">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-                <nav>
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php">HOME</a></li>
-                        <li><a href="movies.php">MOVIES</a></li>
-                        <li><a href="about.php">ABOUT</a></li>
-                        <li><a href="upcoming.php">UPCOMING</a></li>
-                        <li><a href="contact.php">CONTACT</a></li>
-                        <?php if (isset($_COOKIE['loggedin'])) {
-                            echo ' <li><a href="members.php">ACCOUNT</a></li>';
-                            echo ' <li><a href="#" data-toggle="modal" data-target="#myModalLogout">Logout</a></li>';
-                        }
-                        else {
-//                            echo 'style="display:none;"';
-                        }
-                        ?>
-                    </ul>
-                </nav>
-            </div>
-        </nav>
-    </div>
-</div>
-<!-- //nav -->
 
 
 <?php include('assets/includes/functions.php'); ?>

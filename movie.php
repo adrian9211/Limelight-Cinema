@@ -22,7 +22,7 @@ echo "<ul>";
 
             echo "<li>";
             echo "<img src='uploads/".$row['file_name']."' >";
-            echo "<div class='slidey-overlay'></div>";
+            echo "<div class='slidey-overlay card-img-top'></div>";
             echo "<div class='banner-text'>";
             echo "<h3 class='title'>" . $row['Title'] . "</h3>";
             echo "<p class='description'>" . $row['Description'] . "</p>";
@@ -76,7 +76,7 @@ echo "</ul>";
                 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                     echo "<div class='item'>";
                     echo "<div class='Limelightl-movie-gride-agile Limelightl-movie-gride-agile1'>";
-                    echo "<a href='single.html' class='hvr-shutter-out-horizontal'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='img-responsive' alt=' ' />
+                    echo "<a href='single.html' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='img-responsive' alt=' ' />
                                 <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
                                 ";
                     echo "</a>";
@@ -137,7 +137,7 @@ echo "</ul>";
 
                             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                                 echo "<div class='col-md-2 Limelightl-movie-gride-agile'>";
-                                echo "<a href='single.html' class='hvr-shutter-out-horizontal'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='img-responsive' alt=' ' />
+                                echo "<a href='single.html' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='img-responsive' alt=' ' />
                                 <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
                                 ";
                                 echo "</a>";

@@ -25,7 +25,7 @@
 html, body{
     font-size: 100%;
     font-family: 'Roboto Condensed', sans-serif;
-    background:#ffffff;
+    background:#FFE5C7;
 }
 ul li,ol li{
     font-size:14px;
@@ -56,6 +56,60 @@ input[type="submit"],.agileinfo_chat a,.Limelightls_footer_grid1_left p a,.Limel
 .header {
     padding: 1em 0;
     border-top: 3px solid #FF8D1B;
+}
+
+.nav-link {
+    color: #FFFFFF !important;
+}
+.nav-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.nav-item {
+    margin: 3px;
+    border-radius: 7px;
+    background: #FF8D1B !important;
+    justify-content: space-evenly;
+}
+
+/*navbar-collapse {*/
+/*    flex-direction: row;*/
+/*    justify-content: space-evenly;*/
+/*}*/
+
+.bg-light {
+    background:#FFE5C7 !important;
+
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #FF8D1B !important;
+    border-color: #FF8D1B !important;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    transition: all 0.5s ease-in-out;
+    background: #231304 !important;
+    border-color: #231304 !important;
+}
+.navbar-nav {
+    padding: 0 !important;
+    width: 100%;
+    display: flex;
+    background: #FF8D1B;
+}
+
+.nav-item:hover {
+    transition: all 0.5s ease-in-out;
+    background: #231304 !important;
+}
+
+#birthday {
+    margin-bottom: 1rem;
+
 }
 .Limelightlayouts_logo{
     float:left;
@@ -135,6 +189,14 @@ input[type="submit"],.agileinfo_chat a,.Limelightls_footer_grid1_left p a,.Limel
     background: none;
     border: none;
 }
+
+.navbar-row {
+    background: #FF8D1B;
+    border: none;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding: 0;
+}
 .navbar {
     margin-bottom: 0;
 }
@@ -184,6 +246,15 @@ ul.dropdown-menu.multi-column {
 }
 ul.dropdown-menu.multi-column ul li a:hover{
     color:#FF8D1B;
+}
+
+.bottom-navbar {
+    background: #FF8D1B;
+    padding: 0;
+}
+
+.bottom-navbar .container-fluid {
+    padding: 0;
 }
 /*-- //nav --*/
 /*-- banner-bottom --*/
@@ -368,107 +439,34 @@ p.fexi_header_para1 a i {
     background: #fff;
 }
 /*-- //Latest-tv-series --*/
-/*-- footer --*/
-.footer{
-    background:#1D2130;
-    padding:4em 0;
+
+
+footer {
+    background: #1D2130;
+    padding: 4em 0;
+    color: #FFFFFF;
 }
-.Limelightls_footer_grid_left1{
-    position:relative;
+
+
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0;
 }
-.Limelightls_footer_grid_left1 h2{
-    font-size: 2em;
-    color:#FF8D1B;
-    text-transform:uppercase;
-    font-style: normal;
-    margin-bottom:.5em;
+
+.footer-links li {
+    list-style: none;
+    margin: 0 1em;
+    flex-wrap: wrap;
 }
-.Limelightls_footer_grid_left1_pos{
-    width:80%;
-    border:1px solid #fff;
-    padding:10px;
-}
-.Limelightls_footer_grid_left1_pos input[type="email"]{
-    outline: none;
-    padding: 10px 10px;
-    font-size: 14px;
-    color: #999;
-    width: 74.1%;
-    background: #fff;
-    border: none;
-}
-.Limelightls_footer_grid_left1_pos input[type="submit"]{
-    outline: none;
-    width: 25%;
-    background:#FF8D1B;
-    font-size:14px;
-    text-transform:uppercase;
-    color:#fff;
-    border: none;
-    padding:10px 0;
-}
-.Limelightls_footer_grid_left1_pos input[type="submit"]:hover{
-    background:#fff;
-    color:#1D2130;
-}
-.Limelightls_footer_grid_right,.Limelightls_footer_grid1_right {
-    text-align: right;
-}
-.Limelightls_footer_grid{
-    padding-bottom:2em;
-    border-bottom:1px solid #999;
-    margin-bottom:2em;
-}
-.Limelightls_footer_grid1_left p{
-    color:#999;
-    line-height:1.8em;
-}
-.Limelightls_footer_grid1_left p a{
-    color:#fff;
-    text-decoration:none;
-}
-.Limelightls_footer_grid1_left p a:hover{
-    color:#FF8D1B;
-}
-.Limelightls_footer_grid1_right ul li{
-    display:inline-block;
-    margin-left: 2em;
-}
-.Limelightls_footer_grid1_right ul li a{
-    color:#fff;
-    text-decoration:none;
-    text-transform:uppercase;
-}
-.Limelightls_footer_grid1_right ul li a:hover{
-    color:#FF8D1B;
-}
-.Limelightls_footer_grid_right a{
-    display: block;
+
+.footer-links a {
+    color: #FFFFFF;
     text-decoration: none;
-    width: 28%;
-    margin-left: 24em;
 }
-.Limelightls_footer_grid_right a h2{
-    font-size: 2.8em;
-    color: #fff;
-    text-transform: uppercase;
-    background: url(../images/1.jpg) no-repeat right transparent;
-    padding-right: 1.67em;
-    font-weight: 900;
-    padding-bottom: .3em;
-}
-.Limelightls_footer_grid_right a h2 span{
-    color: #FF8D1B;
-    font-size: .3em;
-    display: block;
-    font-weight: 300;
-    letter-spacing: 5px;
-    text-align: right;
-    line-height: 0;
-}
-.Limelightls_footer_grid_right {
-    margin-top: 2em;
-}
+
 /*-- //footer --*/
 /* Pen Title */
 .pen-title {
@@ -509,10 +507,11 @@ p.fexi_header_para1 a i {
     top: -0;
     right: -0;
     background:#FF8D1B;
-    height: 30px;
+    height: 40px;
     margin: -5px 0 0;
+    padding: 7px;
     color: #ffffff;
-    font-size: 12px;
+    font-size: 12px!important;
     line-height: 30px;
     text-align: center;
 }
@@ -1100,6 +1099,7 @@ h3.head {
         padding: 3em;
         width: 100%;
     }
+
     .footer {
         padding: 3em 0;
     }
@@ -1127,6 +1127,9 @@ h3.head {
     }
 }
 @media (max-width:800px){
+    td .slidey-list-description{
+        display:none;}
+
     ul.dropdown-menu.multi-column {
         width: 300px;
     }
@@ -1158,21 +1161,16 @@ h3.head {
     /*-- //icons --*/
 }
 @media (max-width:767px){
-    .navbar-toggle {
-        float: none;
-        margin: .5em 0 0;
+    .nav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+        background: #ff8d1b;
     }
-    .navbar {
-        text-align: center;
-    }
-    .navbar-default .navbar-toggle {
-        border-color: #fff;
-    }
-    .navbar-default .navbar-toggle .icon-bar {
-        background-color: #fff;
-    }
-    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-        background-color: transparent;
+    .nav-item {
+        margin-top: 3px;
+        margin-bottom: 3px;
     }
     .navbar-nav > li {
         float: none;
@@ -1183,8 +1181,10 @@ h3.head {
         border: none;
     }
     .navbar-nav {
-        background: #7a7977;
+        /*margin: auto;*/
+        background: #FFFFFF;
     }
+
     .navbar-nav .open .dropdown-menu {
         background-color: #fff;
     }
