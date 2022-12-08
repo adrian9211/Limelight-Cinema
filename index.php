@@ -117,62 +117,118 @@ echo "</ul>";
 
 
 
-
-
 <!-- general -->
-
-
 
 <div class="general">
     <h4 class="latest-text Limelight_latest_text">All Movies</h4>
     <div class="container">
-        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-            <div id="myTabContent" class="tab-content">
-                <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-                    <div class="Limelight_agile_featured_movies">
-                            <?php
-
-                            $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title FROM movies");
-
-                            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                                echo "<div class='col-md-2 Limelightl-movie-gride-agile'>";
-                                echo "<a href='single.html' class='hvr-shutter-out-horizontal'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='img-responsive' alt=' ' />
+        <div class="row justify-content-md-center">
+            <?php
+            $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title FROM movies");
+            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                echo "<div class='col-md-3 col-sm-6 shadow-sm p-3 d-flex flex-column'> ";
+                echo "<a href='single.html' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='card-img-top' alt=' ' />
                                 <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
                                 ";
-                                echo "</a>";
-                                echo "<div class='mid-1 agileits_Limelightlayouts_mid_1_home'>";
-                                echo "<div class='Limelightl-movie-text'>";
-                                echo "<h6 class='mb-2 fw-bold'><a href='single.html' >" . $row['Title'] . " </a></h6>";
-                                echo "<h6><a href='single.html'>" . $row['Type'] . "</a></h6>";
-                                echo "</div>";
-                                echo "<div class='mid-2 agile_mid_2_home'>";
-                                echo "<div class='block-stars'>";
-                                echo "<ul class='Limelightl-ratings'>";
-                                echo "<p>" . $row['Rating'] . "</p>";
-                                while ($row['Rating'] > 0) {
-                                    echo "<li><a href='#'><i class='fa fa-star' aria-hidden='true'></i></a></li>";
-                                    $row['Rating']--;
-                                }
-                                echo "</ul>";
-                                echo "</div>";
-                                echo "<div class='clearfix'></div>";
-                                echo "</div>";
-                                echo "<div class='ribben'>";
-                                echo "<p>NEW</p>";
-                                echo "</div>";
-//                                echo "</div>";
-                                echo "</div>";
-                                echo "</div>";
+                echo "</a>";
+                echo "<h6 class='card-title'><a href='single.html' >" . $row['Title'] . " </a></h6>";
+                echo "<h6><a href='single.html'>" . $row['Type'] . "</a></h6>";
+                echo "<div class='mid-2 agile_mid_2_home'>";
+                echo "<div class='block-stars'>";
+                echo "<ul class='Limelightl-ratings'>";
+                echo "<p>" . $row['Rating'] . "</p>";
+                while ($row['Rating'] > 0) {
+                    echo "<li><a href='#'><i class='fa fa-star' aria-hidden='true'></i></a></li>";
+                    $row['Rating']--;
+                }
+                echo "</ul>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
+            };
+            ?>
+        </div>
+    </div>
+</div>
 
-                            };
+<!-- general -->
 
-                            ?>
-                    </div>
+<!--Feedback from our customers owl-carousel-->
+<div class="feedback">
+    <h4 class="latest-text Limelight_latest_text">Feedback from our customers</h4>
+    <div class="container">
+        <div class="Limelight_agile_banner_bottom_grid">
+            <div id="owl-demo2" class="owl-carousel owl-theme">
+                <div class="item">
+                    <section class="feedback-card">
+                        <blockquote>Calvin: Sometimes when I'm talking with others, my words can't keep up with my thoughts. I wonder why we think faster than we speak. Hobbes: Probably so we can think twice. </blockquote>
+                        <div class="author">
+                            <img src="images/faces/small/1.png" alt="face1"/>
+                            <h5>Pelican Steve</h5>
+                        </div>
+                    </section>
                 </div>
+
+                <div class="item">
+                    <section class="feedback-card">
+                        <blockquote>Thank you. before I begin, I'd like everyone to notice that my report is in a professional, clear plastic binder...When a report looks this good, you know it'll get an A. That's a tip kids. Write it down.</blockquote>
+                        <div class="author">
+                            <img src="images/faces/small/2.png" alt="face2"/>
+                            <h5>Max Conversion</h5>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="item">
+                    <section class="feedback-card">
+                        <blockquote>My behaviour is addictive functioning in a disease process of toxic co-dependency. I need holistic healing and wellness before I'll accept any responsibility for my actions.</blockquote>
+                        <div class="author">
+                            <img src="images/faces/small/3.png" alt="face3"/>
+                            <h5>Eleanor Faint</h5>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="item">
+                    <section class="feedback-card">
+                        <blockquote>Calvin: Sometimes when I'm talking with others, my words can't keep up with my thoughts. I wonder why we think faster than we speak. Hobbes: Probably so we can think twice. </blockquote>
+                        <div class="author">
+                            <img src="images/faces/small/4.png" alt="face4"/>
+                            <h5>Pelican Steve </h5>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="item">
+                    <section class="feedback-card">
+                        <blockquote>Thank you. before I begin, I'd like everyone to notice that my report is in a professional, clear plastic binder...When a report looks this good, you know it'll get an A. That's a tip kids. Write it down.</blockquote>
+                        <div class="author">
+                            <img src="images/faces/small/5.png" alt="face5"/>
+                            <h5>Max Conversion</h5>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="item">
+                    <section class="feedback-card">
+                        <blockquote>My behaviour is addictive functioning in a disease process of toxic co-dependency. I need holistic healing and wellness before I'll accept any responsibility for my actions.</blockquote>
+                        <div class="author">
+                            <img src="images/faces/small/6.png" alt="face6"/>
+                            <h5>Eleanor Faint</h5>
+                        </div>
+                    </section>
+                </div>
+
             </div>
         </div>
     </div>
 </div>
+<!--Feedback from our customers owl-carousel-->
+
+
+
+
+
 <!-- Latest-tv-series -->
 <div class="Latest-tv-series">
     <h4 class="latest-text Limelight_latest_text Limelight_home_popular">Most Popular Movies</h4>

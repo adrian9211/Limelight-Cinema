@@ -44,6 +44,14 @@
 
             });
 
+            $("#owl-demo2").owlCarousel({
+                autoPlay: 6000, //Set AutoPlay to 3 seconds
+                items : 3,
+                itemsDesktop : [640,4],
+                itemsDesktopSmall : [414,3]
+
+            });
+
         });
     </script>
     <!-- //banner-bottom-plugin -->
@@ -224,4 +232,3 @@
 <?php include('assets/includes/functions.php'); ?>
 <?php include('assets/includes/login.php'); ?>
 <?php include('assets/includes/register.php'); ?>
-

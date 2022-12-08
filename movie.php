@@ -22,11 +22,11 @@ echo "<ul>";
 
             echo "<li>";
             echo "<img src='uploads/".$row['file_name']."' >";
-            echo "<div class='slidey-overlay card-img-top'></div>";
+//            echo "<div class='slidey-overlay card-img-top'></div>";
             echo "<div class='banner-text'>";
             echo "<h3 class='title'>" . $row['Title'] . "</h3>";
             echo "<p class='description'>" . $row['Description'] . "</p>";
-            echo "</div>";
+//            echo "</div>";
             echo "</li>";
         }
 echo "</ul>";
@@ -87,6 +87,9 @@ echo "</ul>";
                         $row['Rating']--;
                     }
                     echo "</ul>";
+                    echo "<div class='ribben'>";
+                    echo "<p>NEW</p>";
+                    echo "</div>";
                     echo "</div>";
                     echo "</div>";
 
@@ -111,11 +114,8 @@ echo "</ul>";
 
 <!-- general -->
 
-
-
 <div class="general">
     <h4 class="latest-text Limelight_latest_text">All Movies</h4>
-
     <div class="container">
         <div class="row justify-content-md-center">
                 <?php
@@ -126,7 +126,6 @@ echo "</ul>";
                                 <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
                                 ";
                     echo "</a>";
-
                     echo "<h6 class='card-title'><a href='single.html' >" . $row['Title'] . " </a></h6>";
                     echo "<h6><a href='single.html'>" . $row['Type'] . "</a></h6>";
                     echo "<div class='mid-2 agile_mid_2_home'>";
@@ -139,18 +138,15 @@ echo "</ul>";
                     }
                     echo "</ul>";
                     echo "</div>";
-
                     echo "</div>";
                     echo "</div>";
-
                 };
                 ?>
         </div>
     </div>
 </div>
-<!--</div>-->
 
-
+<!-- general -->
 
 
 

@@ -50,7 +50,7 @@
             // build new structure
             var domdocument = "";
             if (base.options.showList) {
-                domdocument += "<div class='slidey-row row'><div class='slidey-image col-md-12'><div class='slidey-overlay'>";
+                domdocument += "<div class='slidey-row row'><div class='slidey-image  col-md-12'><div class='slidey-overlay'>";
             } else {
                 domdocument += "<div class='slidey-row row'><div class='slidey-image col-md-12'><div class='slidey-overlay'>";
             }
@@ -61,7 +61,7 @@
             base.$el.empty().append(domdocument);
             // set dom node links
             base.layout.$row = base.$el.find(".slidey-row").first();
-            base.layout.$image = base.$el.find(".slidey-image").first();
+            base.layout.$image = base.$el.find(".slidey-image img-fluid").first();
             base.layout.$list = base.$el.find(".slidey-list").first();
             base.layout.overlay = {};
             base.layout.overlay.progressWidth = -1;
