@@ -538,10 +538,13 @@ footer {
     color: #FFFFFF;
 }
 
-
+.about-page {
+    margin: 100px;
+}
 
 .footer-links {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 1em 0;
@@ -553,7 +556,11 @@ footer {
     flex-wrap: wrap;
 }
 
-.footer-links a {
+.footer-links li:hover {
+    color: #FF8D1B;
+}
+
+.footer-links li a {
     color: #FFFFFF;
     text-decoration: none;
 }

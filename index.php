@@ -46,23 +46,6 @@ echo "</ul>";
 </script>
 <!-- //banner -->
 
-<div class="general_social_icons">
-    <nav class="social">
-        <ul>
-            <li class="Limelight_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
-            <li class="Limelight_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
-            <li class="Limelight_dribbble"><a href="#">Dribbble <i class="fa fa-dribbble"></i></a></li>
-            <li class="Limelight_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>
-        </ul>
-    </nav>
-</div>
-
-
-
-
-
-
-
 
 
 <!-- banner-bottom -->
@@ -164,7 +147,7 @@ echo "</ul>";
                         <blockquote>Calvin: Sometimes when I'm talking with others, my words can't keep up with my thoughts. I wonder why we think faster than we speak. Hobbes: Probably so we can think twice. </blockquote>
                         <div class="author">
                             <img src="images/faces/small/1.png" alt="face1"/>
-                            <h5>Pelican Steve</h5>
+                            <h5>Steve P.</h5>
                         </div>
                     </section>
                 </div>
@@ -174,7 +157,7 @@ echo "</ul>";
                         <blockquote>Thank you. before I begin, I'd like everyone to notice that my report is in a professional, clear plastic binder...When a report looks this good, you know it'll get an A. That's a tip kids. Write it down.</blockquote>
                         <div class="author">
                             <img src="images/faces/small/2.png" alt="face2"/>
-                            <h5>Max Conversion</h5>
+                            <h5>Max C.</h5>
                         </div>
                     </section>
                 </div>
@@ -184,7 +167,7 @@ echo "</ul>";
                         <blockquote>My behaviour is addictive functioning in a disease process of toxic co-dependency. I need holistic healing and wellness before I'll accept any responsibility for my actions.</blockquote>
                         <div class="author">
                             <img src="images/faces/small/3.png" alt="face3"/>
-                            <h5>Eleanor Faint</h5>
+                            <h5>Eleanor F</h5>
                         </div>
                     </section>
                 </div>
@@ -194,7 +177,7 @@ echo "</ul>";
                         <blockquote>Calvin: Sometimes when I'm talking with others, my words can't keep up with my thoughts. I wonder why we think faster than we speak. Hobbes: Probably so we can think twice. </blockquote>
                         <div class="author">
                             <img src="images/faces/small/4.png" alt="face4"/>
-                            <h5>Pelican Steve </h5>
+                            <h5>Alice G.</h5>
                         </div>
                     </section>
                 </div>
@@ -204,7 +187,7 @@ echo "</ul>";
                         <blockquote>Thank you. before I begin, I'd like everyone to notice that my report is in a professional, clear plastic binder...When a report looks this good, you know it'll get an A. That's a tip kids. Write it down.</blockquote>
                         <div class="author">
                             <img src="images/faces/small/5.png" alt="face5"/>
-                            <h5>Max Conversion</h5>
+                            <h5>Ruth A.</h5>
                         </div>
                     </section>
                 </div>
@@ -214,7 +197,7 @@ echo "</ul>";
                         <blockquote>My behaviour is addictive functioning in a disease process of toxic co-dependency. I need holistic healing and wellness before I'll accept any responsibility for my actions.</blockquote>
                         <div class="author">
                             <img src="images/faces/small/6.png" alt="face6"/>
-                            <h5>Eleanor Faint</h5>
+                            <h5>Eleanor F</h5>
                         </div>
                     </section>
                 </div>

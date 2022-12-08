@@ -116,7 +116,7 @@
                     </li>
                     <?php if (isset($_COOKIE['loggedin'])) {
                         echo ' <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="../members.php">ACCOUNT</a>
+                    <a class="nav-link " aria-current="page" href="members.php">ACCOUNT</a>
                 </li>';
                         echo ' <li class="nav-item">
                     <a class="nav-link " aria-current="page" data-bs-toggle="modal" data-bs-target="#myModalLogout" href="logout.php">LOGOUT</a>
@@ -213,6 +213,25 @@
     </div>
 </div>
 <!--Logout modal-->
+
+
+<!--Social media icons-->
+
+<div class="general_social_icons">
+    <nav class="social">
+        <ul>
+            <li class="Limelight_twitter"><a href="https://twitter.com" target="_blank">Twitter <i class="fa fa-twitter"></i></a></li>
+            <li class="Limelight_facebook"><a href="http://facebook.com" target="_blank">Facebook <i class="fa fa-facebook"></i></a></li>
+            <li class="Limelight_dribbble"><a href="https://github.com/adrian9211/Limelight-Cinema" target="_blank">GitHub <i class="fa fa-github"></i></a></li>
+            <li class="Limelight_g_plus"><a href="https://youtube.com" target="_blank">YouTube<i class="fa fa-youtube"></i></a></li>
+        </ul>
+    </nav>
+</div>
+
+<!--Social media icons-->
+
+
+
 <script>
     $('.toggle').click(function(){
         // Switches the Icon

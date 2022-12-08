@@ -1,17 +1,17 @@
 <!--Footer-->
 
 <footer>
-    <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <div class="row">
-                <div class="col-sm-12 col-md-6  text-center d-flex align-items-center justify-content-center">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-12 col-md-6 ms-2">
+            <div class="row justify-content-md-center">
+                <div class="col-sm-12 col-md-12  text-center d-flex align-items-center justify-content-center">
                     <img src="./images/icons/logo_white.png" class="img-fluid" alt="logo">
                     <a href="index.php"></a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-6  text-center d-flex align-items-center justify-content-center">
-                    <ul class="footer-links">
+            <div class="row justify-content-md-center">
+                <div class="col-sm-12 col-md-12  text-center d-flex align-items-center justify-content-center">
+                    <ul class="footer-links d-flex">
                         <li>
                             <a href="index.php">Home</a>
                         </li>
@@ -38,13 +38,13 @@
             </div>
         </div>
 
-        <div class="col-sm-12 col-md-6 ps-4 ">
+        <div class="col-sm-12 col-md-5 ms-2 justify-content-center">
             <div class="newsletter-popup-container">
-                <h3><i class="fa-solid fa-envelope"></i>Subscribe To Our Newsletter</h3>
+                <h3><i class="fa-solid fa-envelope">Subscribe To Our Newsletter</i></h3>
                 <p>Join our subscribers list to get the latest news, updates, and special offers directly in your inbox.</p>
                 <form action="subscribe.php" method="post">
                     <input type="email" name="email" placeholder="Your Email" required>
-                    <button type="submit">Subscribe</button>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
                 <p class="newsletter-msg"></p>
 
