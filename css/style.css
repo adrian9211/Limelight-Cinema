@@ -1,25 +1,32 @@
-.card-display {
-    display : grid;
-    grid-template-columns : repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap : 1rem;
-    margin : 1rem;
+/*.card-display {*/
+/*    display : grid;*/
+/*    grid-template-columns : repeat(auto-fill, minmax(300px, 1fr));*/
+/*    grid-gap : 1rem;*/
+/*    margin : 1rem;*/
 
-}
+/*}*/
 
-.card-display-content {
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    height:100%;
-    padding:1rem;
+/*.card-display-content {*/
+/*    display:flex;*/
+/*    flex-direction:column;*/
+/*    justify-content:space-between;*/
+/*    height:100%;*/
+/*    padding:1rem;*/
 
-}
+/*}*/
 
-.movie-card {
-    width: auto !important;
-    height: auto !important;
-    max-width: 300px;
-}
+/*.general-flex {*/
+/*    display : grid;*/
+/*    grid-template-columns : repeat(auto-fill, minmax(300px, 1fr));*/
+/*    grid-gap : 1rem;*/
+/*    margin : 1rem;*/
+/*}*/
+
+/*.movie-card {*/
+/*    width: auto !important;*/
+/*    height: auto !important;*/
+/*    max-width: 300px;*/
+/*}*/
 
 
 html, body{
@@ -57,6 +64,7 @@ input[type="submit"],.agileinfo_chat a,.Limelightls_footer_grid1_left p a,.Limel
     padding: 1em 0;
     border-top: 3px solid #FF8D1B;
 }
+
 
 .nav-link {
     color: #FFFFFF !important;
@@ -1128,7 +1136,7 @@ h3.head {
 }
 @media (max-width:800px){
     td .slidey-list-description{
-        display:none;}
+        display:none !important;}
 
     ul.dropdown-menu.multi-column {
         width: 300px;

@@ -50,13 +50,13 @@
             // build new structure
             var domdocument = "";
             if (base.options.showList) {
-                domdocument += "<div class='slidey-row row'><div class='slidey-image col-md-8'><div class='slidey-overlay'>";
+                domdocument += "<div class='slidey-row row'><div class='slidey-image col-md-12'><div class='slidey-overlay'>";
             } else {
                 domdocument += "<div class='slidey-row row'><div class='slidey-image col-md-12'><div class='slidey-overlay'>";
             }
             domdocument += "<p class='slidey-overlay-title'></p><p class='slidey-overlay-description'></p>";
             domdocument += "<span class='slidey-progress'></span>";
-            domdocument += "</div></div><div class='slidey-list col-md-4'></div></div>";
+            domdocument += "</div></div><div class='slidey-list col-md-12'></div></div>";
             // append new structure
             base.$el.empty().append(domdocument);
             // set dom node links

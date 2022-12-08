@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +12,6 @@
     <meta name="keywords" content="Midlothian, area, cinema, Limelight" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
         function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!-- //for-mobile-apps -->
-
-<!--    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />-->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="css/contactstyle.css" type="text/css" media="all" />
     <link rel="stylesheet" href="css/faqstyle.css" type="text/css" media="all" />
@@ -33,7 +32,6 @@
     <!-- banner-bottom-plugin -->
     <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
     <script src="js/owl.carousel.js"></script>
-<!--    <!-- Bootstrap CSS -->-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <script>
@@ -94,19 +92,19 @@
             <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 ">
                 <div class="container nav-container">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.php">HOME</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="../movie.php">MOVIES</a>
+                        <a class="nav-link " aria-current="page" href="movie.php">MOVIES</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="../about.php">ABOUT</a>
+                        <a class="nav-link " aria-current="page" href="about.php">ABOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="../upcoming.php">UPCOMING</a>
+                        <a class="nav-link " aria-current="page" href="upcoming.php">UPCOMING</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="../contact.php">CONTACT</a>
+                        <a class="nav-link " aria-current="page" href="contact.php">CONTACT</a>
                     </li>
                     <?php if (isset($_COOKIE['loggedin'])) {
                         echo ' <li class="nav-item">

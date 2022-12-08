@@ -2,7 +2,7 @@
 ?>
 <?php
 # Set page title
-$page_title = "Limelight Cinema - Home";
+$page_title = "Limelight Cinema - Movies";
 # Include header file
 include('includes/header.php');
 
@@ -59,13 +59,6 @@ echo "</ul>";
 </div>
 
 
-
-
-
-
-
-
-
 <!-- banner-bottom -->
 <div class="banner-bottom">
     <div class="container">
@@ -76,7 +69,7 @@ echo "</ul>";
                 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                     echo "<div class='item'>";
                     echo "<div class='Limelightl-movie-gride-agile Limelightl-movie-gride-agile1'>";
-                    echo "<a href='single.html' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='img-responsive' alt=' ' />
+                    echo "<a href='single.html' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='' alt=' ' />
                                 <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
                                 ";
                     echo "</a>";
@@ -95,12 +88,8 @@ echo "</ul>";
                     }
                     echo "</ul>";
                     echo "</div>";
-                    echo "<div class='clearfix'></div>";
                     echo "</div>";
-                    echo "<div class='ribben'>";
-                    echo "<p>NEW</p>";
-                    echo "</div>";
-//                                echo "</div>";
+
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";
@@ -126,54 +115,45 @@ echo "</ul>";
 
 <div class="general">
     <h4 class="latest-text Limelight_latest_text">All Movies</h4>
+
     <div class="container">
-        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-            <div id="myTabContent" class="tab-content">
-                <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-                    <div class="Limelight_agile_featured_movies">
-                            <?php
-
-                            $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title FROM movies");
-
-                            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                                echo "<div class='col-md-2 Limelightl-movie-gride-agile'>";
-                                echo "<a href='single.html' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='img-responsive' alt=' ' />
+        <div class="row justify-content-md-center">
+                <?php
+                $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title FROM movies");
+                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    echo "<div class='col-md-3 col-sm-6 shadow-sm p-3 d-flex flex-column'> ";
+                    echo "<a href='single.html' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='card-img-top' alt=' ' />
                                 <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
                                 ";
-                                echo "</a>";
-                                echo "<div class='mid-1 agileits_Limelightlayouts_mid_1_home'>";
-                                echo "<div class='Limelightl-movie-text'>";
-                                echo "<h6 class='mb-2 fw-bold'><a href='single.html' >" . $row['Title'] . " </a></h6>";
-                                echo "<h6><a href='single.html'>" . $row['Type'] . "</a></h6>";
-                                echo "</div>";
-                                echo "<div class='mid-2 agile_mid_2_home'>";
-                                echo "<div class='block-stars'>";
-                                echo "<ul class='Limelightl-ratings'>";
-                                echo "<p>" . $row['Rating'] . "</p>";
-                                while ($row['Rating'] > 0) {
-                                    echo "<li><a href='#'><i class='fa fa-star' aria-hidden='true'></i></a></li>";
-                                    $row['Rating']--;
-                                }
-                                echo "</ul>";
-                                echo "</div>";
-                                echo "<div class='clearfix'></div>";
-                                echo "</div>";
-                                echo "<div class='ribben'>";
-                                echo "<p>NEW</p>";
-                                echo "</div>";
-//                                echo "</div>";
-                                echo "</div>";
-                                echo "</div>";
+                    echo "</a>";
 
-                            };
+                    echo "<h6 class='card-title'><a href='single.html' >" . $row['Title'] . " </a></h6>";
+                    echo "<h6><a href='single.html'>" . $row['Type'] . "</a></h6>";
+                    echo "<div class='mid-2 agile_mid_2_home'>";
+                    echo "<div class='block-stars'>";
+                    echo "<ul class='Limelightl-ratings'>";
+                    echo "<p>" . $row['Rating'] . "</p>";
+                    while ($row['Rating'] > 0) {
+                        echo "<li><a href='#'><i class='fa fa-star' aria-hidden='true'></i></a></li>";
+                        $row['Rating']--;
+                    }
+                    echo "</ul>";
+                    echo "</div>";
 
-                            ?>
-                    </div>
-                </div>
-            </div>
+                    echo "</div>";
+                    echo "</div>";
+
+                };
+                ?>
         </div>
     </div>
 </div>
+<!--</div>-->
+
+
+
+
+
 <!-- Latest-tv-series -->
 <div class="Latest-tv-series">
     <h4 class="latest-text Limelight_latest_text Limelight_home_popular">Most Popular Movies</h4>
@@ -767,6 +747,7 @@ echo "</ul>";
         </script>
         <!-- //flexSlider -->
     </div>
+</div>
 </div>
 <!-- pop-up-box -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>

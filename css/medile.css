@@ -257,9 +257,7 @@ i.glyphicon.glyphicon-play-circle {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-	-webkit- border-radius: 50%;
-	-0- border-radius: 50%;
-	-moz- border-radius: 50%;
+
 }
 .ribben p {
     font-size:0.9em;
@@ -355,6 +353,10 @@ ol.breadcrumb li a {
     background: #29292A;
     color: #fff;
     border: 1px solid #29292A;
+}
+
+.Limelightl-movie-gride-agile img {
+    width: 100%;
 }
 /*--//blog-pagenat-wthree--*/
 /*-----start-responsive-design------*/
