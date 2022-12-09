@@ -102,6 +102,23 @@
     color: #0a0910;
 }
 
+.card-title a {
+    margin: 0 5px 0 5px;
+    color: #000;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
+h6 a {
+    color: #000;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
 /* Demo purposes only */
 body {
     background-color: #212121;
@@ -124,6 +141,7 @@ p{
 h1,h2,h3,h4,h5,h6,a{
     font-family: 'Roboto Condensed', sans-serif;
     margin:0;
+    text-decoration: none;
 }
 ul,label{
     margin:0;

@@ -114,11 +114,11 @@ echo "</ul>";
                                 <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
                                 ";
                 echo "</a>";
-                echo "<h6 class='card-title'><a href='single.html' >" . $row['Title'] . " </a></h6>";
-                echo "<h6><a href='single.html'>" . $row['Type'] . "</a></h6>";
+                echo "<h6 class='card-title text-center'><a href='single.html' >" . $row['Title'] . " </a></h6>";
+                echo "<h6 class='text-center'><a  href='single.html'>" . $row['Type'] . "</a></h6>";
                 echo "<div class='mid-2 agile_mid_2_home'>";
                 echo "<div class='block-stars'>";
-                echo "<ul class='Limelightl-ratings'>";
+                echo "<ul class='Limelightl-ratings text-center'>";
                 echo "<p>" . $row['Rating'] . "</p>";
                 while ($row['Rating'] > 0) {
                     echo "<li><a href='#'><i class='fa fa-star' aria-hidden='true'></i></a></li>";
@@ -220,7 +220,7 @@ echo "</ul>";
             <div class="flexslider">
                 <ul class="slides">
                     <li>
-                        <div class="agile_tv_series_grid">
+                        <div class="agile_tv_series_grid row ">
                             <div class="col-md-6 agile_tv_series_grid_left">
                                 <div class="Limelightls_market_video_grid1">
                                     <img src="images/h1-1.jpg" alt=" " class="img-responsive" />
@@ -248,7 +248,7 @@ echo "</ul>";
                                 </p>
                             </div>
                             <div class="clearfix"> </div>
-                            <div class="agileinfo_flexislider_grids">
+                            <div class="agileinfo_flexislider_grids row">
                                 <div class="col-md-2 Limelightl-movie-gride-agile">
                                     <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m22.jpg" title="album-name" class="img-responsive" alt=" " />
                                         <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
@@ -410,7 +410,7 @@ echo "</ul>";
                         </div>
                     </li>
                     <li>
-                        <div class="agile_tv_series_grid">
+                        <div class="agile_tv_series_grid row">
                             <div class="col-md-6 agile_tv_series_grid_left">
                                 <div class="Limelightls_market_video_grid1">
                                     <img src="images/h2-1.jpg" alt=" " class="img-responsive" />
@@ -437,7 +437,7 @@ echo "</ul>";
                                 </p>
                             </div>
                             <div class="clearfix"> </div>
-                            <div class="agileinfo_flexislider_grids">
+                            <div class="agileinfo_flexislider_grids row">
                                 <div class="col-md-2 Limelightl-movie-gride-agile">
                                     <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m2.jpg" title="album-name" class="img-responsive" alt=" " />
                                         <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
@@ -599,7 +599,7 @@ echo "</ul>";
                         </div>
                     </li>
                     <li>
-                        <div class="agile_tv_series_grid">
+                        <div class="agile_tv_series_grid row">
                             <div class="col-md-6 agile_tv_series_grid_left">
                                 <div class="Limelightls_market_video_grid1">
                                     <img src="images/h3-1.jpg" alt=" " class="img-responsive" />
@@ -626,7 +626,7 @@ echo "</ul>";
                                 </p>
                             </div>
                             <div class="clearfix"> </div>
-                            <div class="agileinfo_flexislider_grids">
+                            <div class="agileinfo_flexislider_grids row">
                                 <div class="col-md-2 Limelightl-movie-gride-agile">
                                     <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m2.jpg" title="album-name" class="img-responsive" alt=" " />
                                         <div class="Limelightl-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>

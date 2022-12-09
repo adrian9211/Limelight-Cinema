@@ -40,7 +40,7 @@
 
         <div class="col-sm-12 col-md-5 ms-2 justify-content-center">
             <div class="newsletter-popup-container">
-                <h3><i class="fa-solid fa-envelope">Subscribe To Our Newsletter</i></h3>
+                <h3><i class="fa fa-envelope  me-2"></i>Subscribe To Our Newsletter</h3>
                 <p>Join our subscribers list to get the latest news, updates, and special offers directly in your inbox.</p>
                 <form action="subscribe.php" method="post">
                     <input type="email" name="email" placeholder="Your Email" required>

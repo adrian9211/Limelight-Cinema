@@ -6,7 +6,7 @@ $page_title = "Limelight Cinema - Subscribe";
 # Include header file
 include('includes/header.php');
 
-echo "<div class='container'></div>";
+echo "<div class='container about-page'>";
 // Ensure post variable exists
 if (isset($_POST['email'])) {
 
@@ -19,26 +19,25 @@ if (isset($_POST['email'])) {
         $stmt = $pdo->prepare('SELECT * FROM subscribers WHERE email = ?');
         $stmt->execute([ $_POST['email'] ]);
         if ($stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo "You\'re already a subscriber!";
+            echo '<h1 class="text-center about-page">You\'re already a subscriber!</h1>';
             echo "<br>";
             echo "You will be redirected to the login page in 5 seconds";
-            header("refresh:5;url=index.php");
+            echo '<h2 class="text-center about-page">You will be redirected to the main page in 5 seconds...</h2>';
         }
         // Insert email address into the database
         $stmt = $pdo->prepare('INSERT INTO subscribers (email,date_subbed) VALUES (?,?)');
         $stmt->execute([ $_POST['email'], date('Y-m-d\TH:i:s') ]);
         // Output success response
-        echo "Thank you for subscribing!";
+        echo '<h1 class="text-center about-page">Thank you for subscribing!</h1>';
         echo "<br>";
-        echo "You will be redirected to the login page in 5 seconds";
-        header("refresh:5;url=index.php");
-    } else {
+        echo '<h2 class="text-center about-page">You will be redirected to the main page in 5 seconds...</h2>';
 
-        echo "Please provide a valid email address!";
+} else {
+        echo '<h1 class="text-center about-page">Please provide a valid email address!</h1>';
         echo "<br>";
-        echo "You will be redirected to the login page in 5 seconds";
-        header("refresh:5;url=index.php");
-    }
+        echo '<h1 class="text-center about-page">You will be redirected to the main page in 5 seconds...</h1>';
+
+}
 echo "</div>";
 
 ?>
@@ -90,9 +89,15 @@ echo "</div>";
                 openNewsletterPopup();
             }
         });
+
+
     </script>
 
 
+
+    <script>
+        setTimeout(function (){ window.location.href= 'http://23.102.4.246/Limelight-Cinema';},5000);
+    </script>
 <?php
 # Include footer
 include('includes/footer.php');
