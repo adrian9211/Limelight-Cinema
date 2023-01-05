@@ -1,9 +1,3 @@
-/*--
-Author: Limelightlayouts
-Author URL: http://Limelightlayouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
 html, body{
     font-size: 100%;
 font-family: 'Roboto Condensed', sans-serif;
@@ -205,20 +199,28 @@ ul#myTab {
   right: 0;
 }
 .Limelightl-movie-text h6 a {
-    font-size: 1.4em;
+    font-size: 1.1em;
     color: #222;
+    font-weight: lighter;
 }
 .Limelightl-movie-text {
 	    margin: 0.7em 0;
 }
 .mid-2 p {
-       float: left;
-    font-size: 1em;
+    float: left;
+    font-size: 1.5em;
     color: #333;
-    line-height: 22px;
+    line-height: 35px;
+    text-align: center!important;
 }
 .block-stars {
-    float: right;
+    /*float: left;*/
+}
+
+.Limelightl-ratings {
+    display: flex;
+    justify-content: center;
+    padding: 0;
 }
 
 ul.Limelightl-ratings li,.Limelightl-ratings a{
@@ -432,7 +434,8 @@ ol.breadcrumb li a {
 }
 @media (max-width:384px){
 	.Limelightl-movie-text h6 a {
-      font-size: 1.2em;
+        font-weight: lighter;
+        font-size: 0.8em;
 	}
 	ul.Limelightl-ratings li i,.Limelightl-ratings a i {
 		font-size: 0.8em;

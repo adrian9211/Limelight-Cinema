@@ -50,18 +50,19 @@
             // build new structure
             var domdocument = "";
             if (base.options.showList) {
-                domdocument += "<div class='slidey-row row'><div class='slidey-image  col-md-12'><div class='slidey-overlay'>";
+                domdocument += "<div class='slidey-row row'><div class='slidey-image col-md-8'><div class='slidey-overlay'>";
             } else {
                 domdocument += "<div class='slidey-row row'><div class='slidey-image col-md-12'><div class='slidey-overlay'>";
             }
-            domdocument += "<p class='slidey-overlay-title'></p><p class='slidey-overlay-description'></p>";
+            domdocument += "<p class='slidey-overlay-title'></p>";
+            domdocument += "<p class='slidey-overlay-description'></p>";
             domdocument += "<span class='slidey-progress'></span>";
-            domdocument += "</div></div><div class='slidey-list col-md-12'></div></div>";
+            domdocument += "</div></div><div class='slidey-list col-md-4'></div></div>";
             // append new structure
             base.$el.empty().append(domdocument);
             // set dom node links
             base.layout.$row = base.$el.find(".slidey-row").first();
-            base.layout.$image = base.$el.find(".slidey-image img-fluid").first();
+            base.layout.$image = base.$el.find(".slidey-image").first();
             base.layout.$list = base.$el.find(".slidey-list").first();
             base.layout.overlay = {};
             base.layout.overlay.progressWidth = -1;
@@ -72,7 +73,7 @@
 
             // create controls
             var controls = "<div class='slidey-controls slidey-controls-previous'><i class='fa fa-chevron-left'></i></div>";
-               controls += "<div class='slidey-controls slidey-controls-next'><i class='fa fa-chevron-right'></i></div>";
+            controls += "<div class='slidey-controls slidey-controls-next'><i class='fa fa-chevron-right'></i></div>";
 
             base.layout.$image.append(controls);
 
@@ -101,12 +102,12 @@
             // calculate list item heights
             var sliderHeight = base.layout.$image.innerHeight();
             var oneSlideListItemHeight = parseInt(sliderHeight) / base.options.listCount;
-            
+
             // set list item thumbnail dimensions
             var thumbWidth = oneSlideListItemHeight - 9;
             base.layout.$list.find(".slidey-list-thumbnail").css("width", thumbWidth).css("height", thumbWidth);
             base.addEventListeners();
-            
+
             // set list item heights
             base.layout.$list.find("li").each(function() {
                 var $this = $(this);
@@ -191,7 +192,7 @@
                 {
                     base.layout.$nodeContainer = $(base.options.nodeContainer);
                     var $nodebase = $("<div class='slidey-node-container'></ul>");
-                    for (var slideIndex = 0; slideIndex < base.slides.length; slideIndex++) 
+                    for (var slideIndex = 0; slideIndex < base.slides.length; slideIndex++)
                     {
                         var node = "<div class='slidey-node' style='background-image: url(\"" + base.slides[slideIndex].image + "\");'></div>";
                         $nodebase.append(node);
@@ -226,7 +227,7 @@
         showNodes: false,
         nodeContainer: ""
     };
-    
+
     $.fn.slidey = function(options) {
         return this.each(function() {
             (new $.slidey(this, options));

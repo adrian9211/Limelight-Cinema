@@ -20,10 +20,10 @@ echo "<ul>";
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
             echo "<li>";
-            echo "<img src='uploads/".$row['file_name']."' >";
+            echo "<img  src='uploads/".$row['file_name']."' >";
             echo "<div class='slidey-overlay'></div>";
             echo "<div class='banner-text'>";
-            echo "<h3 class='title'>" . $row['Title'] . "</h3>";
+            echo "<p class='title'>" . $row['Title'] . "</p>";
             echo "<p class='description'>" . $row['Description'] . "</p>";
             echo "</div>";
             echo "</li>";
@@ -64,13 +64,13 @@ echo "</ul>";
                     echo "</a>";
                     echo "<div class='mid-1 agileits_Limelightlayouts_mid_1_home'>";
                     echo "<div class='Limelightl-movie-text'>";
-                    echo "<h6 class='mb-2 fw-bold'><a href='single.html' >" . $row['Title'] . " </a></h6>";
+                    echo "<p class='mb-2 fw-bold'><a href='single.html' >" . $row['Title'] . " </a></p>";
                     echo "<h6><a href='single.html'>" . $row['Type'] . "</a></h6>";
                     echo "</div>";
                     echo "<div class='mid-2 agile_mid_2_home'>";
                     echo "<div class='block-stars'>";
                     echo "<ul class='Limelightl-ratings'>";
-                    echo "<p>" . $row['Rating'] . "</p>";
+                    echo "<p class='text-center me-1'> " . $row['Rating'] . "</p>";
                     while ($row['Rating'] > 0) {
                         echo "<li><a href='#'><i class='fa fa-star' aria-hidden='true'></i></a></li>";
                         $row['Rating']--;
@@ -114,17 +114,20 @@ echo "</ul>";
                                 <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
                                 ";
                 echo "</a>";
-                echo "<h6 class='card-title text-center'><a href='single.html' >" . $row['Title'] . " </a></h6>";
+                echo "<div class='Limelightl-movie-text'>";
+
+                echo "<p class='card-title text-center'><a href='single.html' >" . $row['Title'] . " </a></p>";
                 echo "<h6 class='text-center'><a  href='single.html'>" . $row['Type'] . "</a></h6>";
                 echo "<div class='mid-2 agile_mid_2_home'>";
                 echo "<div class='block-stars'>";
-                echo "<ul class='Limelightl-ratings text-center'>";
-                echo "<p>" . $row['Rating'] . "</p>";
+                echo "<ul class='Limelightl-ratings'>";
+                echo "<p class='text-center me-1'> " . $row['Rating'] . "</p>";
                 while ($row['Rating'] > 0) {
                     echo "<li><a href='#'><i class='fa fa-star' aria-hidden='true'></i></a></li>";
                     $row['Rating']--;
                 }
                 echo "</ul>";
+                echo "</div>";
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";

@@ -1,33 +1,3 @@
-/*.card-display {*/
-/*    display : grid;*/
-/*    grid-template-columns : repeat(auto-fill, minmax(300px, 1fr));*/
-/*    grid-gap : 1rem;*/
-/*    margin : 1rem;*/
-
-/*}*/
-
-/*.card-display-content {*/
-/*    display:flex;*/
-/*    flex-direction:column;*/
-/*    justify-content:space-between;*/
-/*    height:100%;*/
-/*    padding:1rem;*/
-
-/*}*/
-
-/*.general-flex {*/
-/*    display : grid;*/
-/*    grid-template-columns : repeat(auto-fill, minmax(300px, 1fr));*/
-/*    grid-gap : 1rem;*/
-/*    margin : 1rem;*/
-/*}*/
-
-/*.movie-card {*/
-/*    width: auto !important;*/
-/*    height: auto !important;*/
-/*    max-width: 300px;*/
-/*}*/
-
 
 /* Feedback*/
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
@@ -111,12 +81,17 @@
     transition: all 0.3s ease 0s;
 }
 
-h6 a {
+.Limelightl-movie-text a {
     color: #000;
-    font-size: 1em;
+    font-size: 2em;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease 0s;
+}
+
+.Limelightl-movie-text a:hover {
+    color: #FF8D1B;
+    text-decoration: none;
 }
 
 /* Demo purposes only */
@@ -1148,7 +1123,7 @@ h3.head {
     .Limelightl-movie-gride-agile:hover .Limelightl-action-icon {
         top: 42%;
     }
-    .Limelightl-movie-text h6 a {
+    .Limelightl-movie-text p a {
         font-size: 1.31em !important;
     }
     .agile_tv_series_grid_right {
@@ -1327,7 +1302,7 @@ h3.head {
     .agile_mid_2_home {
         width: 90%;
     }
-    .Limelightl-movie-text h6 a {
+    .Limelightl-movie-text p a {
         font-size: 1.3em !important;
     }
     a.Limelight_play_icon span, a.Limelight_play_icon1 span, a.Limelight_play_icon2 span {
