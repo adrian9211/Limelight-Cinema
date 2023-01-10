@@ -126,7 +126,7 @@ function addMovie() {
     echo "<div class='movie-card'>";
     echo "<img src='uploads/upload.jpeg' class='card-img-top' >";
     echo "<tr>";
-    echo "<td><input type='submit' name='insert' class='btn btn-primary'  onclick='insertMovie()' value='insert'></td>";
+    echo "<td><input type='submit' name='insertMovie' class='btn btn-primary'  value='insert'></td>";
     echo "</tr>";
     echo "</div>";
     echo "</div>";
@@ -178,9 +178,6 @@ function addMovie() {
             <div class="col-12">
                 <div class="collapse multi-collapse" id="multiCollapseExample2">
                     <?php
-
-
-
                     echo "<h2>Edit movie</h2>";
                     $statusMsg = '';
                     $targetDir = "uploads/";
@@ -188,14 +185,14 @@ function addMovie() {
                     $targetFilePath = $targetDir . $fileName;
                     $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
-                    if(isset($_POST["update"])){
+                    if(isset($_POST["updateMovie"])){
                         // Allow certain file formats
                         $allowTypes = array('jpg','png','jpeg','gif','JPG','PNG','JPEG','GIF');
                         if(in_array($fileType, $allowTypes)){
                             // Upload file to server
                             if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
                                 // Insert image file name into database
-                                $update = $conn->query("UPDATE movies SET Title = '$_POST[Title]',Description = '$_POST[Description]', Category = '$_POST[Category]', Type = '$_POST[Type]', `Age restricted` = '$_POST[Agerestricted]' ,`Display time 1` = '$_POST[Display1]',`Display time 2` = '$_POST[Display2]',`Display time 3` = '$_POST[Display3]', file_name = '".$fileName."', Stock = '$_POST[Stock]', Rating = '$_POST[Rating]', Likes = '$_POST[Likes]', Length = '$_POST[Length]' WHERE MovieID = ".$_POST['hidden']);
+                                $update = $conn->query("UPDATE movies SET Title = '$_POST[Title]',Description = '$_POST[Description]', Category = '$_POST[Category]', Type = '$_POST[Type]', `Age restricted` = '$_POST[Agerestricted]' ,`Display time 1` = '$_POST[Display1]',`Display time 2` = '$_POST[Display2]',`Display time 3` = '$_POST[Display3]', file_name = '".$fileName."', Stock = '$_POST[Stock]', Rating = '$_POST[Rating]', Likes = '$_POST[Likes]', Length = '$_POST[Length]', file_name_narrow = '".$fileName."' WHERE MovieID = ".$_POST['hidden']);
                                 if($update){
                                     $statusMsg = "The file ".$fileName. " has been uploaded successfully.";
                                 }else{
@@ -211,6 +208,9 @@ function addMovie() {
                         $statusMsg = 'Please select a file to upload.';
                     }
 
+                    // Display status message
+                    echo $statusMsg;
+
 
                     if (isset($_POST['delete'])) {
                         $deleteQuerry = "DELETE FROM movies WHERE MovieID = '$_POST[hidden]'";
@@ -221,7 +221,14 @@ function addMovie() {
 
 
 
-                    if(isset($_POST["insert"]) && !empty($_FILES["file"]["name"])){
+
+                    $statusMsg = '';
+                    $targetDir = "uploads/";
+                    $fileName = basename($_FILES["file"]["name"]);
+                    $targetFilePath = $targetDir . $fileName;
+                    $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+
+                    if(isset($_POST["insertMovie"]) && !empty($_FILES["file"]["name"])){
                         // Allow certain file formats
                         $allowTypes = array('jpg','png','jpeg','gif','JPG','PNG','JPEG','GIF');
                         if(in_array($fileType, $allowTypes)){
@@ -246,6 +253,19 @@ function addMovie() {
 
                     // Display status message
                     echo $statusMsg;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                     $result = mysqli_query($conn, "SELECT * FROM movies");
@@ -316,7 +336,7 @@ function addMovie() {
                         echo "<div class='movie-card'>";
                         echo "<img src='uploads/".$row['file_name']."' class='card-img-top' >";
                         echo "<tr>";
-                        echo "<td><input type='submit' name='update' class='btn btn-success me-1 mt-1' onclick='updateMovie()' value='update'></td>";
+                        echo "<td><input type='submit' name='updateMovie' class='btn btn-success me-1 mt-1' onclick='updateMovie()' value='update'></td>";
                         echo "<td><input type='submit' name='delete' class='btn btn-danger me-1 mt-1'  onclick='deleted()' value='delete'></td>";
                         echo "</tr>";
                         echo "</div>";
@@ -539,29 +559,7 @@ function addMovie() {
 
 
 
-<script>
-    function insertUser() {
-        alert("New user added");
-    }
 
-    function insertMovie() {
-        alert("New movie added");
-    }
-    function update2() {
-        alert("User details updated!");
-    }
-
-    function deleted() {
-        alert("User deleted!");
-    }
-
-    function updateMovie() {
-        alert("Movie details updated!");
-    }
-
-
-
-</script>
 
 <?php
 # Include footer

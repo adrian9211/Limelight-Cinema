@@ -15,7 +15,7 @@ include('includes/header.php');
 <?php
 require_once ("db.php");
 
-        $result = mysqli_query($conn, "SELECT Title, Description, file_name FROM movies");
+        $result = mysqli_query($conn, "SELECT Title, Description, file_name, MovieID FROM movies");
 
 echo "<ul>";
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -56,18 +56,18 @@ echo "</ul>";
         <div class="Limelight_agile_banner_bottom_grid">
             <div id="owl-demo" class="owl-carousel owl-theme">
                 <?php
-                $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title FROM movies");
+                $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title, MovieID FROM movies");
                 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                     echo "<div class='item'>";
                     echo "<div class='Limelightl-movie-gride-agile Limelightl-movie-gride-agile1'>";
-                    echo "<a href='single.html' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='' alt=' ' />
+                    echo "<a href='single-movie.php?MovieID=" . $row['MovieID'] ." ' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='' alt=' ' />
                                 <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
                                 ";
                     echo "</a>";
                     echo "<div class='mid-1 agileits_Limelightlayouts_mid_1_home'>";
                     echo "<div class='Limelightl-movie-text'>";
-                    echo "<h6 class='mb-2 fw-bold'><a href='single.html' >" . $row['Title'] . " </a></h6>";
-                    echo "<h6><a href='single.html'>" . $row['Type'] . "</a></h6>";
+                    echo "<h6 class='mb-2 fw-bold'>" . $row['Title'] . " </h6>";
+                    echo "<h6>" . $row['Type'] . "</h6>";
                     echo "</div>";
                     echo "<div class='mid-2 agile_mid_2_home'>";
                     echo "<div class='block-stars'>";
@@ -110,10 +110,10 @@ echo "</ul>";
     <div class="container">
         <div class="row justify-content-md-center">
                 <?php
-                $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title FROM movies");
+                $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title, MovieID FROM movies");
                 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                     echo "<div class='col-md-3 col-sm-6 shadow-sm p-3 d-flex flex-column'> ";
-                    echo "<a href='single.html' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='card-img-top' alt=' ' />
+                    echo "<a href='single-movie.php?MovieID=" . $row['MovieID'] ." ' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='card-img-top' alt=' ' />
                                 <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
                                 ";
                     echo "</a>";

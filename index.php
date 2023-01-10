@@ -1,3 +1,4 @@
+
 <?php //session_start(); ?>
 <?php
 # Set page title
@@ -11,26 +12,26 @@ include('includes/header.php');
 <!-- banner -->
 <div id="slidey" style="display:none;">
 
-<?php
-require_once ("db.php");
+    <?php
+    require_once ("db.php");
 
-        $result = mysqli_query($conn, "SELECT Title, Description, file_name FROM movies");
+    $result = mysqli_query($conn, "SELECT Title, Description, file_name FROM movies");
 
-echo "<ul>";
-        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+    echo "<ul>";
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
-            echo "<li>";
-            echo "<img  src='uploads/".$row['file_name']."' >";
-            echo "<div class='slidey-overlay'></div>";
-            echo "<div class='banner-text'>";
-            echo "<p class='title'>" . $row['Title'] . "</p>";
-            echo "<p class='description'>" . $row['Description'] . "</p>";
-            echo "</div>";
-            echo "</li>";
-        }
-echo "</ul>";
+        echo "<li>";
+        echo "<img  src='uploads/".$row['file_name']."' >";
+        echo "<div class='slidey-overlay'></div>";
+        echo "<div class='banner-text'>";
+        echo "<p class='title'>" . $row['Title'] . "</p>";
+        echo "<p class='description'>" . $row['Description'] . "</p>";
+        echo "</div>";
+        echo "</li>";
+    }
+    echo "</ul>";
 
-?>
+    ?>
 
 </div>
 <script src="js/jquery.slidey.js"></script>
@@ -54,11 +55,11 @@ echo "</ul>";
         <div class="Limelight_agile_banner_bottom_grid">
             <div id="owl-demo" class="owl-carousel owl-theme">
                 <?php
-                $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title FROM movies");
+                $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title, MovieID FROM movies");
                 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                     echo "<div class='item'>";
                     echo "<div class='Limelightl-movie-gride-agile Limelightl-movie-gride-agile1'>";
-                    echo "<a href='single.html' class='hvr-shutter-out-horizontal'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='img-responsive' alt=' ' />
+                    echo "<a href='single-movie.php?MovieID=" . $row['MovieID'] ." ' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='' alt=' ' />
                                 <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
                                 ";
                     echo "</a>";
@@ -107,10 +108,10 @@ echo "</ul>";
     <div class="container">
         <div class="row justify-content-md-center">
             <?php
-            $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title FROM movies");
+            $result = mysqli_query($conn, "SELECT Type, Rating, file_name, Title, MovieID FROM movies");
             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                 echo "<div class='col-md-3 col-sm-6 shadow-sm p-3 d-flex flex-column'> ";
-                echo "<a href='single.html' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='card-img-top' alt=' ' />
+                echo "<a href='single-movie.php?MovieID=" . $row['MovieID'] ." ' class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='card-img-top' alt=' ' />
                                 <div class='Limelightl-action-icon'><i class='fa fa-play-circle' aria-hidden='true'></i></div>
                                 ";
                 echo "</a>";
@@ -843,4 +844,3 @@ echo "</ul>";
 # Include footer
 include('includes/footer.php');
 ?>
-
