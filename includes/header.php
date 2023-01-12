@@ -114,10 +114,18 @@
                     <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="contact.php">CONTACT</a>
                     </li>
-                    <?php if (isset($_COOKIE['loggedin'])) {
+<!--                    <li class="nav-item">-->
+<!--                         <a class="nav-link " aria-current="page" href="index.php?page=cart"><i class="fa-solid fa-cart-shopping me-2"></i>BASKET</a>-->
+<!--                    </li>-->
+                    <div class="link-icons">
+                        <a href="index.php?page=cart">
+                            <i class="fa fa-shopping-cart"></i>
+                        </a>
+                    </div>
+                    <?php if (isset($_SESSION['logged-in'])) {
                         echo ' <li class="nav-item">
                     <a class="nav-link " aria-current="page" href="members.php">ACCOUNT</a>
-                </li>';
+                </li> ';
                         echo ' <li class="nav-item">
                     <a class="nav-link " aria-current="page" data-bs-toggle="modal" data-bs-target="#myModalLogout" href="logout.php">LOGOUT</a>
                 </li>';

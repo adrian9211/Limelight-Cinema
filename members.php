@@ -10,54 +10,50 @@ require_once ("db.php");
 session_start();
 $user = $_SESSION['user'];
 
-if ( !isset($_SESSION['logged-in']) || $_SESSION['logged-in'] !== true) {
-
-    header('Location:login.php');
-    exit;
-
-}
+// if statement to check if user is logged in
+if(isset($_SESSION['logged-in'])) {
 
 $userPrivilege = "SELECT Privileges FROM users WHERE Username = '$user'";
 $userPrivilegeResult= mysqli_query($conn, $userPrivilege) or die ("couldn't run query");
 $userPrivilegeResult2 = $userPrivilegeResult->fetch_assoc()['Privileges'];
 
-        if (isset($_POST['update']))
-        {
-            $updateQuerry = "UPDATE users SET FirstName = '$_POST[FirstName]', Surname = '$_POST[Surname]', Username = '$_POST[Username]', Password = '$_POST[Password]' ,DOB = '$_POST[dob]',Privileges = '$_POST[Privileges]' WHERE UserID = '$_POST[hidden]'";
-            mysqli_query($conn, $updateQuerry) or die ("couldn't run query");
+if (isset($_POST['update']))
+{
+    $updateQuerry = "UPDATE users SET FirstName = '$_POST[FirstName]', Surname = '$_POST[Surname]', Username = '$_POST[Username]', Password = '$_POST[Password]' ,DOB = '$_POST[dob]',Privileges = '$_POST[Privileges]' WHERE UserID = '$_POST[hidden]'";
+    mysqli_query($conn, $updateQuerry) or die ("couldn't run query");
 //            echo "Record updated";
-        }
-        if (isset($_POST['delete']))
-        {
-            $deleteQuerry = "DELETE FROM users WHERE UserID = '$_POST[hidden]'";
-            mysqli_query($conn, $deleteQuerry) or die ("couldn't run query");
+}
+if (isset($_POST['delete']))
+{
+    $deleteQuerry = "DELETE FROM users WHERE UserID = '$_POST[hidden]'";
+    mysqli_query($conn, $deleteQuerry) or die ("couldn't run query");
 //            echo 'User deleted';
-        }
+}
 
-        if (isset($_POST['insert']))
-        {
-            $insertQuerry = "INSERT INTO users (FirstName, Surname, Username, Password, DOB) VALUES ('$_POST[FirstName]', '$_POST[Surname]', '$_POST[Username]', '$_POST[Password]', '$_POST[dob]')";
-            mysqli_query($conn, $insertQuerry)
-            or die ("couldn't run query");
+if (isset($_POST['insert']))
+{
+    $insertQuerry = "INSERT INTO users (FirstName, Surname, Username, Password, DOB) VALUES ('$_POST[FirstName]', '$_POST[Surname]', '$_POST[Username]', '$_POST[Password]', '$_POST[dob]')";
+    mysqli_query($conn, $insertQuerry)
+    or die ("couldn't run query");
 //            echo "New User record inserted";
-        }
-        $result = mysqli_query($conn, "SELECT * FROM users WHERE Username = '$user'");
-        $resultAdmin = mysqli_query($conn, "SELECT * FROM users");
+}
+$result = mysqli_query($conn, "SELECT * FROM users WHERE Username = '$user'");
+$resultAdmin = mysqli_query($conn, "SELECT * FROM users");
 
 
 function registerUser() {
-            echo "<form action='members.php' method='post'>";
-            echo "<tr>";
-            echo "<td><input type='text' class='form-control' name='hidden' placeholder='Do not need to be filled up  ' value='" . $row['UserID'] . "'></td>";
-            echo "<td><input type='text' class='form-control' name='Username' value='" . $row['Username'] . "'></td>";
-            echo "<td><input type='text' class='form-control' name='Password' value='" . $row['Password'] . "'></td>";
-            echo "<td><input type='text' class='form-control' name='FirstName' value='" . $row['FirstName'] . "'></td>";
-            echo "<td><input type='text' class='form-control' name='Surname' value='" . $row['Surname'] . "'></td>";
-            echo "<td><input type='text' class='form-control' name='dob' value='" . $row['DOB'] . "'></td>";
-            echo "<td><input type='submit' name='insert' class='btn btn-primary' onclick='insertUser()' value='insert'></td>";
-            echo "</tr>";
-            echo "</form>";
-        };
+    echo "<form action='members.php' method='post'>";
+    echo "<tr>";
+    echo "<td><input type='text' class='form-control' name='hidden' placeholder='Do not need to be filled up  ' value='" . $row['UserID'] . "'></td>";
+    echo "<td><input type='text' class='form-control' name='Username' value='" . $row['Username'] . "'></td>";
+    echo "<td><input type='text' class='form-control' name='Password' value='" . $row['Password'] . "'></td>";
+    echo "<td><input type='text' class='form-control' name='FirstName' value='" . $row['FirstName'] . "'></td>";
+    echo "<td><input type='text' class='form-control' name='Surname' value='" . $row['Surname'] . "'></td>";
+    echo "<td><input type='text' class='form-control' name='dob' value='" . $row['DOB'] . "'></td>";
+    echo "<td><input type='submit' name='insert' class='btn btn-primary' onclick='insertUser()' value='insert'></td>";
+    echo "</tr>";
+    echo "</form>";
+};
 
 function addMovie() {
     echo "<form action='members.php' method='post' enctype='multipart/form-data'>";
@@ -136,27 +132,39 @@ function addMovie() {
 
 
 <div class="container">
+    <p class="text-center m-3 ">
+        <a class="btn btn-info mt-2" data-bs-toggle="collapse" href="#multiCollapseExample6" role="button" aria-expanded="false" aria-controls="multiCollapseExample6">Hide all details</a>
+    </p>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse show " id="multiCollapseExample6">
+                <div>Welcome : <?php
+                    echo "$user . You are successfully logged in";
+                    echo "<br>";
 
-        <div>Welcome : <?php
-            echo "$user";
-            echo "<br>";
+                    echo "<br>";
+                    echo "Your privileges are: " .$userPrivilegeResult2;
 
-            echo "<br>";
-            echo "Your privileges are: " .$userPrivilegeResult2;
+                    echo "<br>";
+                    echo "Legend: A = admin, C = customer";
+                    ?></div>
+                <br>
+                <p>Great to see you again</p>
+                <br>
 
-            echo "<br>";
-            echo "Legend: A = admin, C = customer";
-        ?></div>
-        <br>
-        <p>Great to see you again</p>
-        <br>
+                <?php
+                if($userPrivilegeResult2 == "A") {
+                    echo "You are an admin";
+                    echo "<br>";
+                    echo "Welcome to Admin page";
+                    echo "<br>";
 
-    <?php
-        if($userPrivilegeResult2 == "A") {
-            echo "You are an admin";
-            echo "Welcome to Admin page";
+                    ?>
+            </div>
+        </div>
+    </div>
+    </div>
 
-            ?>
     <div class="container p-0">
         <p class="text-center m-3 ">
             <a class="btn btn-primary mt-2" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Add Movie</a>
@@ -497,24 +505,24 @@ function addMovie() {
     </div>
 </div>
 
-        <?php
-        }
-        else {
-            echo "You are customer without admin privileges";
-        ?>
-<div class="container p-0">
-    <p class="text-center m-3 ">
-        <button class="btn btn-primary mt-2 " type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample5" aria-expanded="false" aria-controls="multiCollapseExample5">Display your details</button>
-    </p>
-    <div class="row">
-        <div class="col-12 mb-5">
-            <div class="collapse multi-collapse" id="multiCollapseExample5">
-                <?php
-                $resultSingleUser = mysqli_query($conn, "SELECT * FROM users WHERE Username = '$user'");
+<?php
+}
+else {
+    echo "You are customer without admin privileges";
+    ?>
+    <div class="container p-0">
+        <p class="text-center m-3 ">
+            <button class="btn btn-primary mt-2 " type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample5" aria-expanded="false" aria-controls="multiCollapseExample5">Display your details</button>
+        </p>
+        <div class="row">
+            <div class="col-12 mb-5">
+                <div class="collapse multi-collapse" id="multiCollapseExample5">
+                    <?php
+                    $resultSingleUser = mysqli_query($conn, "SELECT * FROM users WHERE Username = '$user'");
 
-                echo "<div class='single user'>";
+                    echo "<div class='single user'>";
 
-                echo "<table border='1'>
+                    echo "<table border='1'>
                                 <tr>
                                     <th>UserID</th>
                                     <th>Username</th>
@@ -524,37 +532,56 @@ function addMovie() {
                                     <th>Date of birth</th>
                                 </tr>";
 
-                while ($row = mysqli_fetch_array($resultSingleUser, MYSQLI_ASSOC)) {
-                    echo "<form action='members.php' method='post'>";
-                    echo "<tr>";
-                    echo "<td><input type='text' class='form-control' name='hidden' value='" . $row['UserID'] . "'></td>";
-                    echo "<td><input type='text' class='form-control' name='Username' value='" . $row['Username'] . "'></td>";
-                    echo "<td><input type='text' class='form-control' name='Password' value='" . $row['Password'] . "'></td>";
-                    echo "<td><input type='text' class='form-control' name='FirstName' value='" . $row['FirstName'] . "'></td>";
-                    echo "<td><input type='text' class='form-control' name='Surname' value='" . $row['Surname'] . "'></td>";
-                    echo "<td><input type='date' class='form-control' name='dob' value='" . $row['DOB'] . "'></td>";
-                    echo "<td><input type='submit' name='update' class='btn btn-success' onclick='update2()' value='update'></td>";
-                    echo "<td><input type='submit' name='delete' class='btn btn-danger'  onclick='deleted()' value='delete'></td>";
-                    echo "</tr>";
-                    echo "</form>";
-                }
-                echo "</table>";
+                    while ($row = mysqli_fetch_array($resultSingleUser, MYSQLI_ASSOC)) {
+                        echo "<form action='members.php' method='post'>";
+                        echo "<tr>";
+                        echo "<td><input type='text' class='form-control' name='hidden' value='" . $row['UserID'] . "'></td>";
+                        echo "<td><input type='text' class='form-control' name='Username' value='" . $row['Username'] . "'></td>";
+                        echo "<td><input type='text' class='form-control' name='Password' value='" . $row['Password'] . "'></td>";
+                        echo "<td><input type='text' class='form-control' name='FirstName' value='" . $row['FirstName'] . "'></td>";
+                        echo "<td><input type='text' class='form-control' name='Surname' value='" . $row['Surname'] . "'></td>";
+                        echo "<td><input type='date' class='form-control' name='dob' value='" . $row['DOB'] . "'></td>";
+                        echo "<td><input type='submit' name='update' class='btn btn-success' onclick='update2()' value='update'></td>";
+                        echo "<td><input type='submit' name='delete' class='btn btn-danger'  onclick='deleted()' value='delete'></td>";
+                        echo "</tr>";
+                        echo "</form>";
+                    }
+                    echo "</table>";
 
-                echo "</div>";
-                ?>
+                    echo "</div>";
+                    ?>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<?php
-        }
-    ?>
+    <?php
+}
+?>
 
 
-</div>
+<!--</div>-->
 
+    <?php
+
+
+}
+// else statement to checked if user is logged in
+else {
+    echo '<div class="container">';
+    echo 'not logged yet';
+    echo '<br>';
+    echo 'Please login';
+    echo '<br>';
+    echo 'You will be redirected to the main page in 5 seconds';
+    echo '</div>';
+    echo '<script>';
+    echo 'setTimeout(function(){window.location.href = "http://23.102.4.246/Limelight-Cinema";}, 5000);';
+    echo '</script>';
+};
+// end of else statement
+?>
 
 
 
@@ -565,3 +592,4 @@ function addMovie() {
 # Include footer
 include('includes/footer.php');
 ?>
+

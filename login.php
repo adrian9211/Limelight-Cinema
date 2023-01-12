@@ -3,14 +3,16 @@
 require_once ("db.php");
 //$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $database) or die('Could not connect: ' . mysqli_connect_error());
 
+session_start();
 $query = "SELECT * FROM users WHERE Username = '$_POST[username]' AND Password = '$_POST[password]'";
 $result = mysqli_query($conn, $query ) or die ("couldn't run query");
 $count = mysqli_num_rows($result);
-
+$username = $_POST['username'];
 mysqli_close($conn);
 
+
 if($count==1){
-    session_start();        //start the session
+         //start the session
     $_SESSION['logged-in'] = true;
     $_SESSION['user_id'] = $row['user_id'];
     $_SESSION['admin'] = $row['admin'];
@@ -23,7 +25,7 @@ if($count==1){
 
     $seconds = 5 + time();
     setcookie('loggedin', date("F jS - g:i a"), $seconds, '/');
-    header("location:members.php");
+    header("location:members.php?user=$username");
 
     if (isset($_COOKIE['loggedin'])) {
         echo "Welcome, " . $_SESSION['user'] . "!";

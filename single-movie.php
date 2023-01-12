@@ -57,7 +57,7 @@ echo "<img src='uploads/" . $row['file_name_narrow'] . "' title='album-name' cla
                     echo "</div>";
                     echo "<div class='clearfix'></div>";
                     echo "<div class='row'>";
-                    echo "<div class='col-md-6'>";
+                    echo "<div class='col-md-6 col-xsm-6'>";
                     echo "<h6 class='card-title'>Category</h6>";
                     echo "<br>";
                     echo "<h6 class='card-title'>Likes</h6>";
@@ -68,11 +68,11 @@ echo "<img src='uploads/" . $row['file_name_narrow'] . "' title='album-name' cla
                     echo "<br>";
                     echo "<h6 class='card-title'>Length</h6>";
                     echo "</div>";
-                    echo "<div class='col-md-6'>";
+                    echo "<div class='col-md-6 col-xsm-6'>";
                     echo "<h6 class='card-title'>" . $row['Category'] . "</h6>";
                     echo "<br>";
+                    echo "<form action='single-movie.php' method='post'>";
                     echo "<h6 class='card-title'>" . $row['Likes'] . " <i class='fa fa-thumbs-up fa-lg'></i></h6>";
-
                     echo "<br>";
                     echo "<h6 class='card-title'>" . $row['Stock'] . "</h6>";
                     echo "<br>";
@@ -81,8 +81,19 @@ echo "<img src='uploads/" . $row['file_name_narrow'] . "' title='album-name' cla
                     echo "<h6 class='card-title'>" . $row['Length'] . " min</h6>";
                     echo "<br>";
                     echo "</div>";
-                    echo "";
                     echo "</div>";
+                    echo "<div class='time-buttons m-3'>";
+                    echo "<button class='btn btn-primary m-4' type='button' > ".$row['Display time 1']."</button>";
+                    echo "<button class='btn btn-primary m-4' type='button' > ".$row['Display time 2']."</button>";
+                    echo "<button class='btn btn-primary m-4' type='button' > ".$row['Display time 3']."</button>";
+                    echo "</div>";
+                    ?>
+                    <form action="index.php?page=cart" method="post">
+                        <input type="number" name="quantity" value="1" min="1" max="<?=$row['Stock']?>" placeholder="Quantity" required>
+                        <input type="hidden" name="MovieID" value="<?=$row['MovieID']?>">
+                        <input type="submit" value="Add To Cart">
+                    </form>
+                        <?php
                     echo "</div>";
                     echo "</div>";
                 };

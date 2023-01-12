@@ -21,7 +21,7 @@ if (mysqli_num_rows($checkUser) > 0) {
             echo "New record created successfully";
             echo "<br>";
             echo "You will be redirected to the login page in 5 seconds";
-            header("refresh:5;url=index.php");
+            header("location:members.php?user=$username");
         } else {
             echo mysqli_stmt_error($sql);
         }

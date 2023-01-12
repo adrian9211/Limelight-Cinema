@@ -19,8 +19,12 @@ include('includes/header.php');
     <br>
 </div>
 
+<script>
+    setTimeout(function (){ window.location.href= 'http://23.102.4.246/Limelight-Cinema';},5000);
+</script>
 
 <?php
+
 # Include footer
 include('includes/footer.php');
 ?>

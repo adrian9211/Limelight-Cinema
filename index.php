@@ -1,10 +1,9 @@
-
-<?php //session_start(); ?>
 <?php
 # Set page title
 $page_title = "Limelight Cinema - Home";
 # Include header file
 include('includes/header.php');
+session_start();
 //$_SESSION['loggedin'] = 0;
 ?>
 
