@@ -531,6 +531,36 @@ p.fexi_header_para1 a i {
     -o-transition: all 1s;
     transition: all 1s;
 }
+
+
+.social2 {
+    /*position: fixed;*/
+    /*bottom: 0%;*/
+    /*width: 4%;*/
+    /*z-index: 9999;*/
+}
+/*.social2 ul {*/
+/*    padding: 0px;*/
+/*    -webkit-transform: translate(-270px, 0);*/
+/*    -moz-transform: translate(-270px, 0);*/
+/*    -ms-transform: translate(-270px, 0);*/
+/*    -o-transform: translate(-270px, 0);*/
+/*    transform: translate(-270px, 0);*/
+/*}*/
+.social2 ul li {
+    display: block;
+    margin: 5px;
+    max-width: 310px;
+    min-width: 210px;
+    text-align: center;
+    padding: 10px;
+}
+
+.social2 ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+}
 .Limelight_twitter{
     background:#1da1f2;
 }
@@ -653,13 +683,15 @@ footer {
 
 /*Contact */
 .contact-box {
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
     background: #2B2E3C;
     padding: 0 2em 2em 2em;
     color: #FFFFFF;
+    margin-bottom: 1rem;
 }
 
 .contact-box i {
@@ -677,26 +709,16 @@ footer {
     background: #FF8D1B;
 }
 
-.btn-circle.btn-xl {
-    width: 70px;
-    height: 70px;
-    padding: 10px 16px;
-    border-radius: 35px;
-    font-size: 24px;
-    line-height: 1.33;
+.grid {
+    display: grid;
+    grid-auto-flow: column;
 }
 
-.btn-circle {
-    width: 30px;
-    height: 30px;
-    padding: 6px 0px;
-    border-radius: 15px;
-    text-align: center;
-    font-size: 12px;
-    line-height: 1.42857;
+
+.element {
+    height: 100%;
 }
 
-/*Contact */
 
 
 .footer-links {
