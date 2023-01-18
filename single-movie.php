@@ -92,12 +92,14 @@ echo "<img src='uploads/" . $row['file_name_narrow'] . "' title='album-name' cla
                     echo "<form action='' method='post'>";
 
                     if ($stock > 0) {
-                        if (isset($_SESSION['logged-in']) and $_SESSION['age'] >= 18 !== null) {
-                            echo "$_SESSION[age]";
-                            echo "<button class='btn btn-primary m-4' type='button' data-bs-toggle='modal' data-bs-target='#order' value='Display time 1' name='Display time 1'>Book</button>";
+                        if (isset($_SESSION['logged-in'])) {
+                            if ($_SESSION['age'] >= 18) {
+                                echo "<button class='btn btn-primary m-4' type='button' data-bs-toggle='modal' data-bs-target='#order' value='Display time 1' name='Display time 1'>Book</button>";
+                            } else {
+                                echo "<p class='text-danger'>You are not adult user. <br> Only verified adults can Purchase tickets</p>";
+                            }
                         } else {
                             echo "<button type='submit' name='rent' class='btn btn-primary' disabled>Please Login</button>";
-                            echo "<p class='text-danger'>You are not adult user</p>";
                         }
                     } else {
                         echo "<button class='btn btn-primary m-4' type='button' data-bs-toggle='modal' data-bs-target='#order' value='Display time 1' name='Display time 1' disabled>Book</button>";

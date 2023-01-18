@@ -22,13 +22,10 @@
                             <a href="about.php">About</a>
                         </li>
                         <li>
-                            <a href="comedy.html">Upcoming</a>
+                            <a href="quiz.php">Quiz</a>
                         </li>
                         <li>
                             <a href="members.php">Account</a>
-                        </li>
-                        <li>
-                            <a href="faq.html">FAQ</a>
                         </li>
                         <li>
                             <a href="contact.php">Contact Us</a>

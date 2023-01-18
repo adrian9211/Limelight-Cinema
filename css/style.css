@@ -619,7 +619,12 @@ body{
 
 /*QUIZ*/
 
-
+/*Order*/
+.order-form {
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+}
+/*Order*/
 
 footer {
     background: #1D2130;

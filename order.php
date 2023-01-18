@@ -1,5 +1,10 @@
 
 <?php
+
+//# Set page title
+//$page_title = "Order";
+# Include header file
+include('includes/header.php');
 require_once ("db.php");
 
 session_start();
@@ -13,8 +18,6 @@ $movieID = $_SESSION['movieID'];
 $stock = mysqli_query($conn, "SELECT * FROM movies WHERE MovieID = " . $movieID);
 while ($row = mysqli_fetch_array($stock, MYSQLI_ASSOC)) {
     $stock = $row['Stock'];
-    echo $stock;
-
     $order = mysqli_prepare($conn, "INSERT INTO `orders` (Username, Screening_time, Tickets_number, MovieID) VALUES ('$user', '$time', '$quantity', '$movieID')");
     if($order !== FALSE){
         if(mysqli_stmt_execute($order)){
@@ -23,24 +26,27 @@ while ($row = mysqli_fetch_array($stock, MYSQLI_ASSOC)) {
             $_SESSION['movieID'] = $movieID;
             $_SESSION['title'] = $row['Title'];
 
-            echo "Order placed successfully";
-            echo "<br>";
-            echo "You will be redirected to the login page in 5 seconds";
-            echo "<br>";
-            echo "Your order details are as follows:, $user, $time, $quantity, $movieID,STOCK:  $stock";
-            if ($stock > 0) {
+            if ($stock >= $quantity) {
                 $stock = $stock - $quantity;
-                echo $stock;
                 $update = mysqli_query($conn, "UPDATE movies SET Stock = '$stock' WHERE MovieID = '$movieID'");
                 if ($update) {
-                    echo "Stock updated successfully";
+                    header("location:thank-you.php");
+
                 } else {
-                    echo "Error updating stock";
+                    echo "<div class='container order-form'>";
+                    echo "<h4 class='text-center'>Error updating stock</h4>";
+                    echo "</div>";
                 }
             } else {
-                echo "Stock is empty";
+                echo "<div class='container order-form'>";
+                echo "<h4 class='text-center'>Sorry, we don't have enough tickets for this movie. Please try again</h4>";
+                echo "</div>";
+
+                # Include footer
+                include('includes/footer.php');
+
+
             }
-        header("location:thank-you.php");
         } else {
             echo mysqli_stmt_error($order);
         }
@@ -49,8 +55,3 @@ while ($row = mysqli_fetch_array($stock, MYSQLI_ASSOC)) {
     }
 }
 
-
-
-
-
-?>
