@@ -632,8 +632,23 @@ footer {
     color: #FFFFFF;
 }
 
-.about-page {
-    margin: 100px;
+.about-page h5 {
+    font-size: 1.75rem;
+    margin-bottom: 1em;
+}
+
+.about-page h5:hover {
+    color: #FF8D1B;
+}
+
+.about-page h6 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #ff8d1b;
+}
+
+.about-page h6:hover {
+    color: #000000;
 }
 
 .footer-links {

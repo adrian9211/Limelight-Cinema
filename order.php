@@ -3,8 +3,7 @@
 
 //# Set page title
 //$page_title = "Order";
-# Include header file
-include('includes/header.php');
+
 require_once ("db.php");
 
 session_start();
@@ -38,6 +37,9 @@ while ($row = mysqli_fetch_array($stock, MYSQLI_ASSOC)) {
                     echo "</div>";
                 }
             } else {
+                # Include header file
+                include('includes/header.php');
+
                 echo "<div class='container order-form'>";
                 echo "<h4 class='text-center'>Sorry, we don't have enough tickets for this movie. Please try again</h4>";
                 echo "</div>";
