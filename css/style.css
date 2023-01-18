@@ -604,6 +604,23 @@ p.fexi_header_para1 a i {
 /*-- //Latest-tv-series --*/
 
 
+/*QUIZ*/
+body{
+    font-size: 20px;
+    font-family: sans-serif;
+    color: #333;
+}
+.question{
+    font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+
+/*QUIZ*/
+
+
+
 footer {
     background: #1D2130;
     padding: 4em 0;
