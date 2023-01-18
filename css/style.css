@@ -651,6 +651,54 @@ footer {
     color: #000000;
 }
 
+/*Contact */
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #2B2E3C;
+    padding: 0 2em 2em 2em;
+    color: #FFFFFF;
+}
+
+.contact-box i {
+    position: sticky;
+    font-size: 2.5rem;
+    color: #FFFFFF;
+}
+
+.circle-icon {
+    transform: translateY(-56px);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    padding: 1rem;
+    background: #FF8D1B;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+/*Contact */
+
+
 .footer-links {
     display: flex;
     flex-wrap: wrap;
