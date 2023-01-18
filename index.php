@@ -9,18 +9,18 @@ session_start();
 
 
 <!-- banner -->
-<div id="slidey" style="display:none;">
+<div id="slidey" style=" display:none;">
 
     <?php
     require_once ("db.php");
 
-    $result = mysqli_query($conn, "SELECT Title, Description, file_name FROM movies");
+    $result = mysqli_query($conn, "SELECT Title, Description, file_name, file_name_narrow FROM movies");
 
     echo "<ul>";
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
         echo "<li>";
-        echo "<img  src='uploads/".$row['file_name']."' >";
+        echo "<img  src='uploads/".$row['file_name_narrow']."' >";
         echo "<div class='slidey-overlay'></div>";
         echo "<div class='banner-text'>";
         echo "<p class='title'>" . $row['Title'] . "</p>";

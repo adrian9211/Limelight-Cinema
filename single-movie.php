@@ -34,6 +34,7 @@ echo "<img src='uploads/" . $row['file_name_narrow'] . "' title='album-name' cla
                 <?php
                 $result = mysqli_query($conn, "SELECT * FROM movies WHERE MovieID = " . $_GET['MovieID']);
                 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $stock = $row['Stock'];
 //                    echo "<img src='uploads/" . $row['file_name_narrow'] . "' title='album-name' class='card-img-top' alt=' ' />";
                     echo "<div class='col-md-6 col-sm-12 shadow-sm p-3 d-flex flex-column'> ";
                     echo "<h3 class='hvr-shutter-out-horizontal card-img-top'><img src='uploads/" . $row['file_name'] . "' title='album-name' class='card-img-top' alt=' ' />
@@ -42,9 +43,9 @@ echo "<img src='uploads/" . $row['file_name_narrow'] . "' title='album-name' cla
                     echo "</h3>";
                     echo "</div>";
                     echo "<div class='col-md-6 col-sm-12 shadow-sm p-3 d-flex flex-column'>";
-                    echo "<h6 class='card-title'><a href='single.html' >" . $row['Title'] . " </a></h6>";
+                    echo "<h6 class='card-title'><b>" . $row['Title'] . "</b></h6>";
                     echo "<p class='card-text'>" . $row['Description'] . "</p>";
-                    echo "<h6><a href='single.html'>" . $row['Type'] . "</a></h6>";
+                    echo "<h6>" . $row['Type'] . "</h6>";
                     echo "<div class='mid-2 agile_mid_2_home'>";
                     echo "<div class='block-stars'>";
                     echo "<ul class='Limelightl-ratings'>";
@@ -60,7 +61,7 @@ echo "<img src='uploads/" . $row['file_name_narrow'] . "' title='album-name' cla
                     echo "<div class='col-md-6 col-xsm-6'>";
                     echo "<h6 class='card-title'>Category</h6>";
                     echo "<br>";
-                    echo "<h6 class='card-title'>Likes</h6>";
+                    echo "<h6 class='card-title'>Likes <i class='ps-2 fa fa-thumbs-up fa-lg'></i></h6>";
                     echo "<br>";
                     echo "<h6 class='card-title'>Stock Available</h6>";
                     echo "<br>";
@@ -72,9 +73,14 @@ echo "<img src='uploads/" . $row['file_name_narrow'] . "' title='album-name' cla
                     echo "<h6 class='card-title'>" . $row['Category'] . "</h6>";
                     echo "<br>";
                     echo "<form action='single-movie.php' method='post'>";
-                    echo "<h6 class='card-title'>" . $row['Likes'] . " <i class='fa fa-thumbs-up fa-lg'></i></h6>";
+                    echo "<h6 class='card-title'>" . $row['Likes'] . " </h6>";
                     echo "<br>";
-                    echo "<h6 class='card-title'>" . $row['Stock'] . "</h6>";
+                    if ($stock > 0) {
+                        echo "<h6 class='card-title'>" . $row['Stock'] . "</h6>";
+                    } else {
+                        echo "<h6 class='card-title' style='background-color: red;' >" . $row['Stock'] . "</h6>";
+
+                    }
                     echo "<br>";
                     echo "<h6 class='card-title'>" . $row['Rating'] . "</h6>";
                     echo "<br>";
@@ -83,40 +89,126 @@ echo "<img src='uploads/" . $row['file_name_narrow'] . "' title='album-name' cla
                     echo "</div>";
                     echo "</div>";
                     echo "<div class='time-buttons m-3'>";
-                    echo "<button class='btn btn-primary m-4' type='button' > ".$row['Display time 1']."</button>";
-                    echo "<button class='btn btn-primary m-4' type='button' > ".$row['Display time 2']."</button>";
-                    echo "<button class='btn btn-primary m-4' type='button' > ".$row['Display time 3']."</button>";
+                    echo "<form action='' method='post'>";
+
+                    if ($stock > 0) {
+                        if (isset($_SESSION['logged-in']) and $_SESSION['age'] >= 18 !== null) {
+                            echo "$_SESSION[age]";
+                            echo "<button class='btn btn-primary m-4' type='button' data-bs-toggle='modal' data-bs-target='#order' value='Display time 1' name='Display time 1'>Book</button>";
+                        } else {
+                            echo "<button type='submit' name='rent' class='btn btn-primary' disabled>Please Login</button>";
+                            echo "<p class='text-danger'>You are not adult user</p>";
+                        }
+                    } else {
+                        echo "<button class='btn btn-primary m-4' type='button' data-bs-toggle='modal' data-bs-target='#order' value='Display time 1' name='Display time 1' disabled>Book</button>";
+
+                    }
+                    echo "</form>";;
                     echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                    };
                     ?>
-                    <form action="index.php?page=cart" method="post">
-                        <input type="number" name="quantity" value="1" min="1" max="<?=$row['Stock']?>" placeholder="Quantity" required>
-                        <input type="hidden" name="MovieID" value="<?=$row['MovieID']?>">
-                        <input type="submit" value="Add To Cart">
-                    </form>
-                        <?php
-                    echo "</div>";
-                    echo "</div>";
-                };
-                ?>
+
             </div>
         </div>
     </div>
 
-    <!-- general -->
-<!--<div class="product content-wrapper">-->
-<!--    <img src="uploads/--><?php //=$product['file_name']?><!--" width="500" height="500" alt="--><?php //=$product['Title']?><!--">-->
-<!--    <div>-->
-<!--        <h1 class="name">--><?php //=$product['Description']?><!--</h1>-->
-<!--        <form action="single-movie.php?page=cart" method="post">-->
-<!--            <input type="number" name="quantity" value="1" min="1" max="--><?php //=$product['Stock']?><!--" placeholder="Stock" required>-->
-<!--            <input type="hidden" name="product_id" value="--><?php //=$product['MovieID']?><!--">-->
-<!--            <input type="submit" value="Add To Cart">-->
-<!--        </form>-->
-<!--        <div class="description">-->
-<!--            --><?php //=$product['Description']?>
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+
+
+<!--Order modal-->
+    <!-- bootstrap-pop-up -->
+    <div class="modal video-modal fade" id="order" tabindex="-1" role="dialog" aria-labelledby="order">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <section>
+                    <div class="modal-body">
+                        <div class="form">
+                            <h3>Select number of tickets</h3>
+                            <form action="order.php" method="post">
+                                <?php
+                                $result = mysqli_query($conn, "SELECT * FROM movies WHERE MovieID = " . $_GET['MovieID']);
+                                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                                    echo "<h6 class='card-title'>Movie title: <b>" . $row['Title'] . "</b></h6>";
+                                    echo "<h6 class='card-title'>Display time:";
+                                    echo "<select name='screening_time' class='ms-2'>"; // start the dropdown menu
+                                    echo "<option value='" . $row['Display time 1'] . "'>" . $row['Display time 1'] . "</option>";
+                                    echo "<option value='" . $row['Display time 2'] . "'>" . $row['Display time 2'] . "</option>";
+                                    echo "<option value='" . $row['Display time 3'] . "'>" . $row['Display time 3'] . "</option>";
+                                    echo "</select>"; // close the dropdown menu
+                                    echo "</h6>";
+
+                                    $movieID = $row['MovieID'];
+                                    $_SESSION['movieID'] = $movieID;
+                                }
+
+                                ?>
+                                <div class="input-group plus-minus-input mt-2">
+                                    <div class="input-group-button">
+                                        <button type="button" class="button rounded-circle" data-quantity="minus" data-field="quantity">
+                                            <i class="fa fa-minus" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                    <input class="input-group-field" type="number" name="quantity" value="1">
+                                    <div class="input-group-button">
+                                        <button type="button" class="button rounded-circle" data-quantity="plus" data-field="quantity">
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <input class='btn btn-primary m-4' type="submit" value="order" name="submit">
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+<script>
+    jQuery(document).ready(function(){
+        // This button will increment the value
+        $('[data-quantity="plus"]').click(function(e){
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            fieldName = $(this).attr('data-field');
+            // Get its current value
+            var currentVal = parseInt($('input[name='+fieldName+']').val());
+            // If is not undefined
+            if (!isNaN(currentVal)) {
+                // Increment
+                $('input[name='+fieldName+']').val(currentVal + 1);
+            } else {
+                // Otherwise put a 0 there
+                $('input[name='+fieldName+']').val(0);
+            }
+        });
+        // This button will decrement the value till 0
+        $('[data-quantity="minus"]').click(function(e) {
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            fieldName = $(this).attr('data-field');
+            // Get its current value
+            var currentVal = parseInt($('input[name='+fieldName+']').val());
+            // If it isn't undefined or its greater than 0
+            if (!isNaN(currentVal) && currentVal > 0) {
+                // Decrement one
+                $('input[name='+fieldName+']').val(currentVal - 1);
+            } else {
+                // Otherwise put a 0 there
+                $('input[name='+fieldName+']').val(0);
+            }
+        });
+    });
+
+
+</script>
 
 <?php
 # Include footer

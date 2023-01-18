@@ -227,6 +227,53 @@ input[type="submit"],.agileinfo_chat a,.Limelightls_footer_grid1_left p a,.Limel
     margin-bottom: 1rem;
 
 }
+
+/*Order buttons*/
+
+.plus-minus-input {
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.plus-minus-input .input-group-field {
+    text-align: center;
+    margin-left: 1rem!important;
+    margin-right: 1rem!important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.plus-minus-input .input-group-field::-webkit-inner-spin-button,
+.plus-minus-input .input-group-field ::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.plus-minus-input .input-group-button .circle {
+    border-radius: 50%;
+    padding: 0.25em 0.8em;
+}
+
+/*Dropdown */
+
+/*Dropdown */
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+/*Order buttons*/
 .Limelightlayouts_logo{
     float:left;
 }

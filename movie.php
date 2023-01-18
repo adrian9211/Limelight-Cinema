@@ -15,13 +15,13 @@ include('includes/header.php');
 <?php
 require_once ("db.php");
 
-        $result = mysqli_query($conn, "SELECT Title, Description, file_name, MovieID FROM movies");
+        $result = mysqli_query($conn, "SELECT Title, Description, file_name, MovieID, file_name_narrow FROM movies");
 
 echo "<ul>";
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
             echo "<li>";
-            echo "<img src='uploads/".$row['file_name']."' >";
+            echo "<img src='uploads/".$row['file_name_narrow']."' >";
 //            echo "<div class='slidey-overlay card-img-top'></div>";
             echo "<div class='banner-text'>";
             echo "<h3 class='title'>" . $row['Title'] . "</h3>";

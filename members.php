@@ -147,6 +147,39 @@ function addMovie() {
 
                     echo "<br>";
                     echo "Legend: A = admin, C = customer";
+
+                    $dobQuerry = "SELECT DOB FROM users WHERE Username = '$user'";
+                    $dobResult = mysqli_query($conn, $dobQuerry) or die ("couldn't run query");
+                    $dobResult2 = $dobResult->fetch_assoc()['DOB'];
+                    echo "Your date of birth is:" .$dobResult2;
+                    //$dobResult2 = "1990-01-03";
+                    list($year, $month, $day) = explode('-' , $dobResult2);
+                    $birthDate = mktime(0, 0, 0, $month, $day, $year);
+                    echo "<br>";
+                    //        echo "Your age is: " .(date('Y') - date('Y', $birthDate));
+//                    echo "total ammount of seconds that have passed between UNIX epoch and DOB: " .$birthDate;
+                    echo "<br>";
+//                    echo "total ammount of seconds that have passed between UNIX epoch and today: " .time();
+                    echo "<br>";
+                    $timeDifference = time() - $birthDate;
+//                    echo "total ammount of seconds that have passed between DOB and today: " .$timeDifference;
+                    echo "<br>";
+                    $age = floor($timeDifference / 31556926); // 31556926 is the number of seconds in a year
+                    echo "Your age is: " .$age;
+                    $_SESSION['age'] = $age;
+                    echo "<br>";
+                    if ($age >= 18)
+                    {
+                        echo "<br>";
+                        echo "<b>You are an adult member</b>";
+
+                    }
+                    else
+                    {
+                        echo "<br>";
+                        echo "<b>You are an junior member</b>";
+
+                    }
                     ?></div>
                 <br>
                 <p>Great to see you again</p>
@@ -562,7 +595,7 @@ else {
 
 
 <!--</div>-->
-
+F
     <?php
 
 

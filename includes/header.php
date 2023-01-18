@@ -78,7 +78,7 @@
         <img src="./images/icons/logo.png" alt="Logo"  class="d-inline-block align-text-top m-auto ps-5 ps-sm-1">
         </a>
         <form class="d-flex">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" <?php if (isset($_COOKIE['loggedin'])) {
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" <?php if (isset($_SESSION['logged-in'])) {
                 echo 'style="display:none;"';
             }
             else {
@@ -109,25 +109,25 @@
                         <a class="nav-link " aria-current="page" href="about.php">ABOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="upcoming.php">UPCOMING</a>
+                        <a class="nav-link " aria-current="page" href="quiz.php">QUIZ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="contact.php">CONTACT</a>
                     </li>
-<!--                    <li class="nav-item">-->
-<!--                         <a class="nav-link " aria-current="page" href="index.php?page=cart"><i class="fa-solid fa-cart-shopping me-2"></i>BASKET</a>-->
-<!--                    </li>-->
-                    <div class="link-icons">
-                        <a href="index.php?page=cart">
-                            <i class="fa fa-shopping-cart"></i>
-                        </a>
-                    </div>
+<!--<!--                    <li class="nav-item">-->-->
+<!--<!--                         <a class="nav-link " aria-current="page" href="index.php?page=cart"><i class="fa-solid fa-cart-shopping me-2"></i>BASKET</a>-->-->
+<!--<!--                    </li>-->-->
+<!--                    <div class="link-icons">-->
+<!--                        <a href="index.php?page=cart">-->
+<!--                            <i class="fa fa-shopping-cart"></i>-->
+<!--                        </a>-->
+<!--                    </div>-->
                     <?php if (isset($_SESSION['logged-in'])) {
                         echo ' <li class="nav-item">
                     <a class="nav-link " aria-current="page" href="members.php">ACCOUNT</a>
                 </li> ';
                         echo ' <li class="nav-item">
-                    <a class="nav-link " aria-current="page" data-bs-toggle="modal" data-bs-target="#myModalLogout" href="logout.php">LOGOUT</a>
+                    <a class="nav-link " aria-current="page" data-bs-toggle="modal" data-bs-target="#myModalLogout" href="../logout.php">LOGOUT</a>
                 </li>';
                     }
                     else {
@@ -141,6 +141,7 @@
 </nav>
 
 
+<!--Navbar-->
 <!--Navbar-->
 <!-- Button trigger modal -->
 
