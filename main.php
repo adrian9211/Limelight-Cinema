@@ -1,5 +1,7 @@
 <?php
 // Update the details below with your MySQL details
+// Credentials below
+// Subscribe and unsubscribe to the newsletter connection
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
 $DATABASE_PASS = '1xCMat5k5Cb4';

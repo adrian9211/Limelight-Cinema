@@ -79,19 +79,19 @@ include('includes/header.php');
         <div class="row mb-5">
             <div class="col-xl-6 col-sm-12  col-xs-12 ">
                 <div class="mb-4">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First Name">
+                    <input type="test" class="form-control" id="exampleInputFirstName"  placeholder="First Name">
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Surname" >
+                    <input type="text" class="form-control" id="exampleInputSurname" placeholder="Surname" >
                 </div>
             </div>
 
             <div class="col-xl-6 col-sm-12  col-xs-12 ">
                 <div class="mb-4">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                    <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email">
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Subject">
+                    <input type="text" class="form-control" id="exampleInputSubject" placeholder="Subject">
                 </div>
             </div>
         </div>
